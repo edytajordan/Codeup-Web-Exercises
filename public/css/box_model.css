@@ -1,0 +1,99 @@
+/*Fonts for the page*/
+@import url(https://fonts.googleapis.com/css?family=Crafty+Girls);
+@import url(https://fonts.googleapis.com/css?family=Crafty+Girls|Shadows+Into+Light);
+
+/*Header Formatting*/
+h1 {
+    font-family: 'Crafty Girls', cursive;
+    background-image: url(/img/rainbow.jpg);
+    text-align: center;
+}
+ 
+ a:link {
+    color: #FFFFFF;
+ }
+
+ a:visited {
+    color: #FF0091;
+ }
+
+ a:active {
+    color: #E80CE4;
+ }
+
+a:hover {
+    color: #C904FF;
+}
+
+/*Box Formatting*/
+
+/*Universal Formatting*/
+.box {
+    font-weight: bold;
+    font-family: 'Shadows Into Light', cursive;
+    color: #FFFFFF;
+    border: 1px solid black;
+    width: 150px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/*Box-specific Formatting*/
+#red {
+    background-color: #CC0001;
+}
+
+#red:hover {
+    background-color: #7F0001;
+    text-decoration: underline;
+}
+
+#orange {
+    background-color: orange;
+    margin-left: 30px;
+}
+
+#orange:hover {
+    background-color: #7F3700;
+    text-decoration: underline;
+}
+
+#yellow {
+    background-color: yellow;
+    margin-left: 60px;
+}
+
+#yellow:hover {
+    background-color: #7F7300;
+    text-decoration: underline;
+}
+
+#green {
+    background-color: green;
+    margin-left: 90px;
+}
+
+#green:hover {
+    background-color: #074000;
+    text-decoration: underline;
+}
+
+#blue {
+    background-color: blue;
+    margin-left: 120px;
+}
+
+#blue:hover {
+    background-color: #00227F;
+    text-decoration: underline;
+}
+
+#purple {
+    background-color: purple;
+    margin-left: 150px;
+}
+
+#purple:hover {
+    background-color: #45005C;
+    text-decoration: underline;
+}
