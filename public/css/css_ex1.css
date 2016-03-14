@@ -1,0 +1,64 @@
+/*Page Fonts*/
+@import url(https://fonts.googleapis.com/css?family=Crafty+Girls|Shadows+Into+Light|Gloria+Hallelujah|Amatic+SC);
+
+/*Header Formatting*/
+h1 {
+    text-align: center;
+    font-family: 'Gloria Hallelujah', Arial, sans-serif;
+    color: #00FF68;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Amatic SC', Arial, sans-serif;
+    color: #3D9996;
+}
+
+/*Stanza Formatting*/
+
+/*Universal Formatting*/
+.stanza {
+    border: 10px solid #CC14A4;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    width: 270px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Shadows Into Light', cursive;
+    color: #00CCC6;
+}
+
+.stanza:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+span:hover {
+    color: #000E99;
+}
+
+/*Stanza-specific Formatting*/
+#stanza-1 {
+    background-color: #FFF8FC;
+}
+
+#stanza-2 {
+    margin-left: 275px;
+}
+
+#stanza-3 {
+background-color: #FFF8FC;
+}
+
+#stanza-4 {
+    margin-left: 275px;
+}
+
+#stanza-5 {
+    background-color: #FFF8FC;
+}
+
+#stanza-6 {
+    margin-left: 275px;
+}
