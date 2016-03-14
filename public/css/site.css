@@ -1,0 +1,59 @@
+/*
+this is the font I've imported from Google
+*/
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
+/*
+Here are all of my page styles
+*/
+
+/*Here are the colors I'm using for this page
+Green: #179D03
+Yellow:#CFE900
+Navy Blue: #000C45
+Orange Red: #FF2910
+Grey: #474448
+Cream: PapayaWhip;
+*/
+
+/*the following styles apply to specific page elements*/
+
+p {
+    text-align: justify;
+    font-family: "Lato", sans-serif;
+}
+
+h1 {
+    font-family: "Permanent Marker", sans-serif;
+}
+h2 {
+    font-family: "Lato", sans-serif;
+}
+
+h3 {
+    font-family: "Permanent Marker", sans-serif;
+}
+
+#about-me:hover {
+    color: #FF2910;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#projects:hover {
+    color: #179D03;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#clients:hover {
+    color: #000C45;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#creative:hover {
+    color: #CFE900;
+    text-decoration: underline;
+    font-weight: bold;
+}
