@@ -1,0 +1,14 @@
+/*Heading Formatting*/
+h1 {
+    text-align: center;
+}
+/*Body Formatting*/
+.channel {
+    text-align: center;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
