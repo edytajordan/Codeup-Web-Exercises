@@ -1,4 +1,4 @@
 .DS_Store
-../css/css_flags.css
-../flags.html
+public/css/css_flags.css
+public/flags.html
 ./
