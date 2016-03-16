@@ -8,8 +8,22 @@
 
         <script >
             "use strict";
-            var message = "Hello from inline Javascript.";
-            console.log(message)
+            var kristenIsHungry = true;
+            var favoritFood = "burgers"; 
+            if (kristenIsHungry) {
+                console.log("Go get something to eat then");
+
+                if (favoritFood == "burgers") {
+                    console.log("Go to Five Guys");
+                } else if (favoritFood == "pizza") {
+                    console.log("Go to Luciano's");
+                } else if (favoritFood == "cheesecake") {
+                    console.log("Go to The Cheesecake Factory")
+                }
+            } else {
+                console.log("Good job, you got lunch!");
+            }
+
         </script>
     </body>
 </html>
