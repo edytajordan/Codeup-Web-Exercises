@@ -8,8 +8,8 @@
 
         <script >
             "use strict";
-            var kristenIsHungry = true;
-            var favoritFood = "hot dog"; 
+            // var kristenIsHungry = true;
+            // var favoritFood = "hot dog"; 
             // if (kristenIsHungry) {
             //     console.log("Go get something to eat then");
 
@@ -24,25 +24,50 @@
             //     console.log("Good job, you got lunch!");
             // }
             
-            switch (favoritFood) {
-                case "burgers":
-                    console.log("Go to Five Guys");
-                    break;
-                case "pizza":
-                    console.log("Go to Luciano's");
-                    break;
-                case "cheesecake":
-                    console.log("Go to The Cheesecake Factory");
-                    break;
-                case "indian":
-                case "ethiopian":
-                case "steamed_crab":
-                    console.log("Too bad, so sad.");
-                    break;
-                default: 
-                    console.log("Stop being picky!");
-                    break;
+            // switch (favoritFood) {
+            //     case "burgers":
+            //         console.log("Go to Five Guys");
+            //         break;
+            //     case "pizza":
+            //         console.log("Go to Luciano's");
+            //         break;
+            //     case "cheesecake":
+            //         console.log("Go to The Cheesecake Factory");
+            //         break;
+            //     case "indian":
+            //     case "ethiopian":
+            //     case "steamed_crab":
+            //         console.log("Too bad, so sad.");
+            //         break;
+            //     default: 
+            //         console.log("Stop being picky!");
+            //         break;
+            // }
+
+            var burgersKrisAte = 0;
+
+            while (burgersKrisAte < 5) {
+                console.log("NomNomNomNom!!!");
+                console.log(burgersKrisAte);
+
+                burgersKrisAte++;
             }
+
+            console.log("Kris ate " + burgersKrisAte + " burgers!");
+
+            do {
+                var answer = prompt ("What is your name?");
+                console.log(answer);
+            } while (answer == "" || answer == null);
+            var answer = prompt("What is your name?");
+            console.log(answer);
+
+            // while (answer == "" || answer ==null) {
+            //     console.log(answer);
+            //     answer = prompt("What is your name?");
+            // }
+
+            console.log(answer);
 
         </script>
     </body>
