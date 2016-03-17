@@ -11,16 +11,41 @@
 //     console.log('nothing is true');
 // }
 
-var i = 0;
+// var i = 0;
 
-while (i < 5) {
-    i++;
-}
+// while (i < 5) {
+//     i++;
+// }
 
-for (var i = 0; i <= 20; i ++) {
-   console.log('Number of times through the loop: ' + i); 
-    if (i % 2 == 0) {
-        continue;
+// for (var i = 0; i <= 20; i ++) {
+//    console.log('Number of times through the loop: ' + i); 
+//     if (i % 2 == 0) {
+//         continue;
+//     }
+//     console.log(i + ' is an odd number');
+// }
+
+var names = [
+    "Ben",
+    "Isaac",
+    "Melissa",
+    "Will",
+    "Natalie",
+    "Pancho",
+    ]
+
+    for (var i = 0; i < names.length; i++) {
+        if (names[i].indexOf("i") == -1) {
+            continue;
+        }
+
+        console.log(names[i]);
     }
-    console.log(i + ' is an odd number');
-}
+
+    for (var i = 0; i < names.length; i++) {
+        if (names[i] == "Will") {
+            break;
+        }
+    }
+
+    console.log("Cool! We found " + names[i]);
