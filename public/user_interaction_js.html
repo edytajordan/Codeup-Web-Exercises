@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF=8">
+        <title>User Interaction JS</title>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            "use strict";
+            // todo: Ask the user for their name.
+            var yourName = prompt("What's your name is?");
+            console.log(yourName);
+            //       Keep asking if an empty input is provided.
+            do {
+            var requiredvalue = prompt("I demand you answer my questions!");
+            } while (requiredvalue == null || requiredvalue == '');
+            console.log(requiredvalue);
+            // todo: Show an alert message that welcomes the user based on their input.
+
+            var input = prompt("Type something");
+            alert(input);
+           
+            // todo: Ask the user if they like pizza.
+            //       Based on their answer show a creative alert message.
+            do {
+            var pizzaLove = prompt("Do you like pizza?");
+            console.log(pizzaLove);
+            } while (pizzaLove == null || pizzaLove == '' || pizzaLove == "no");
+            
+        </script>
+    </body>
+</html>
