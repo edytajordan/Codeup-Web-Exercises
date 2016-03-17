@@ -17,6 +17,10 @@ while (i < 5) {
     i++;
 }
 
-for (var i = 0; i < 5; i ++) {
-    console.log(i);
+for (var i = 0; i <= 20; i ++) {
+   console.log('Number of times through the loop: ' + i); 
+    if (i % 2 == 0) {
+        continue;
+    }
+    console.log(i + ' is an odd number');
 }
