@@ -124,3 +124,24 @@ function sum(num1, num2) {
 function average(num1, num2) {   
     var result = (sum(num1, num2) / 2);   
     return result; }
+
+// function countTo(numberToCountTo) { 
+//     for (var i = 1; i <= numberToCountTo; i++) { 
+//         console.log(i); 
+//     } 
+    // } 
+//     countTo(10);
+
+// function plusOne (number) {
+//     for (var i = 1; i <= number; i++) {
+//         console.log(i);
+//     }
+// }
+
+// plusOne(12);
+
+ function division(num1, num2) {
+                var result = num1 / num2;
+                return result;
+                return num1 = num2;
+            }
