@@ -16,10 +16,13 @@
                 console.log('There are ' + names.length + ' names in this array');
                 // todo:
                 // Create log statements that will print each of the names array elements individually.
-                console.log("My homegirl's name is " + names[0]);
-                console.log("Her cousin's name is " + names[1]);
-                console.log("we all went to the club with " + names[2]);
-                console.log("Then we picked up " + names[3] + " and went to the Waffle House.");
+                
+                for (var i = 0; i < names.length; i++) {
+                console.log('I know a girl named ' + names[i]);
+                }
+                names.forEach(function(element, index, array){
+                console.log('I already told you that I know a girl named ' + element);
+            });
             })();
         </script>
     </body>
