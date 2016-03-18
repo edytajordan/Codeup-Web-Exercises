@@ -7,7 +7,7 @@
     <body>
 
         <script >
-            "use strict";
+            // "use strict";
             // var kristenIsHungry = true;
             // var favoritFood = "hot dog"; 
             // if (kristenIsHungry) {
@@ -167,7 +167,7 @@
             // alert('Greetings from sayHello2.');
             // };
 
-          var shapes = ['square', 'rectangle', 'circle', 'triangle', 'diamond', 'trapezoid', 'parallelogram'];
+          // var shapes = ['square', 'rectangle', 'circle', 'triangle', 'diamond', 'trapezoid', 'parallelogram'];
 
           
             // console.log('There are ' + shapes.length + ' shapes in the array');
@@ -190,9 +190,40 @@
             //     console.log('The shape at index ' + i + ' is: ' + shapes[i]);
             // }
 
-            shapes.forEach(function(element, index, array){
-                console.log('The shape at index ' + index + ' is: ' + element);
-            });
+            // shapes.forEach(function(element, index, array){
+            //     console.log('The shape at index ' + index + ' is: ' + element);
+            // });
+
+            // var movies = ['The Shawshank Redemption', 'The Color Purple', 'Coming to America', 'Zoolander', "It's Complicated", 'The Breakfast Club', 'Pootie Tang', 'Star Wars: A New Hope', 'Interstellar', 'The Hunt for Red October'];
+
+            // movies.forEach(function(element, index, array){
+            //         if (element == movies[1]) {
+            //             console.log('My favorite movie is ' + movies[1]);
+            //         } else {
+            //             console.log('I can always watch ' + element);
+            //         }
+            // });
+
+            (function() {
+                "use strict";
+                var names = [
+                    "Marcus", 
+                    "Matthew", 
+                    "Alan", [
+                    "Bobbie", 
+                    "Lorena",
+                    "Poncho",
+                    ]
+                    ["James",
+                    "Nikki"]
+                ];
+               
+               var nameString = names.join(",");
+               console.log(nameString);
+
+               var splitNames = nameString.split(", ");
+               console.log(splitNames);
+            })();
         </script>
     </body>
 </html>
