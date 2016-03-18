@@ -206,23 +206,50 @@
 
             (function() {
                 "use strict";
-                var names = [
-                    "Marcus", 
-                    "Matthew", 
-                    "Alan", [
-                    "Bobbie", 
-                    "Lorena",
-                    "Poncho",
-                    ]
-                    ["James",
-                    "Nikki"]
-                ];
+            //     var names = [
+            //         "Marcus", 
+            //         "Matthew", 
+            //         "Alan", [
+            //         "Bobbie", 
+            //         "Lorena",
+            //         "Poncho",
+            //         ]
+            //         ["James",
+            //         "Nikki"]
+            //     ];
                
-               var nameString = names.join(",");
-               console.log(nameString);
+            //    var nameString = names.join(",");
+            //    console.log(nameString);
 
-               var splitNames = nameString.split(", ");
-               console.log(splitNames);
+            //    var splitNames = nameString.split(", ");
+            //    console.log(splitNames);
+                var favoriteMovies = ['The Shawshank Redemption', 'The Color Purple', 'Coming to America', 'Zoolander', "It's Complicated", 'The Breakfast Club', 'Pootie Tang', 'Star Wars: A New Hope', 'Interstellar', 'The Hunt for Red October'];
+                function logMovies() {
+                    console.log('Here is the list of my favorite movies:');
+                    console.log(favoriteMovies);
+                }
+                
+                favoriteMovies.sort();
+                logMovies();
+
+                var index = favoriteMovies.indexOf('The Color Purple');
+                console.log(index);
+
+                var myFavoriteMovie = favoriteMovies.splice(index, 1);
+                console.log(myFavoriteMovie);
+
+                favoriteMovies.unshift('The Color Purple');
+                logMovies();
+                
+                var index2 = favoriteMovies.indexOf("It's Complicated");
+                console.log(index2);
+
+                var leastFavorite = favoriteMovies.splice(index2, 1);
+                console.log(leastFavorite);
+
+                favoriteMovies.push("It's Complicated");
+                logMovies();
+
             })();
         </script>
     </body>
