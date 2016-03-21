@@ -7,218 +7,29 @@
     <body>
 
         <script >
-            // "use strict";
-            // var kristenIsHungry = true;
-            // var favoritFood = "hot dog"; 
-            // if (kristenIsHungry) {
-            //     console.log("Go get something to eat then");
-
-            //     if (favoritFood == "burgers") {
-            //         console.log("Go to Five Guys");
-            //     } else if (favoritFood == "pizza") {
-            //         console.log("Go to Luciano's");
-            //     } else if (favoritFood == "cheesecake") {
-            //         console.log("Go to The Cheesecake Factory")
-            //     }
-            // } else {
-            //     console.log("Good job, you got lunch!");
-            // }
-            
-            // switch (favoritFood) {
-            //     case "burgers":
-            //         console.log("Go to Five Guys");
-            //         break;
-            //     case "pizza":
-            //         console.log("Go to Luciano's");
-            //         break;
-            //     case "cheesecake":
-            //         console.log("Go to The Cheesecake Factory");
-            //         break;
-            //     case "indian":
-            //     case "ethiopian":
-            //     case "steamed_crab":
-            //         console.log("Too bad, so sad.");
-            //         break;
-            //     default: 
-            //         console.log("Stop being picky!");
-            //         break;
-            // }
-
-            // var burgersKrisAte = 0;
-
-            // while (burgersKrisAte < 5) {
-            //     console.log("NomNomNomNom!!!");
-            //     console.log(burgersKrisAte);
-
-            //     burgersKrisAte++;
-            // }
-
-            // console.log("Kris ate " + burgersKrisAte + " burgers!");
-
-            // do {
-            //     var answer = prompt ("What is your name?");
-            //     console.log(answer);
-            // } while (answer == "" || answer == null);
-            // var answer = prompt("What is your name?");
-            // console.log(answer);
-
-            // while (answer == "" || answer ==null) {
-            //     console.log(answer);
-            //     answer = prompt("What is your name?");
-            // }
-
-            // console.log(answer);
-
-            // var myString = "hello Codeup!"; 
-            // if (myString) {   
-            //     console.log('myString is true!'); 
-            // } else {   
-            //     console.log('myString is false!') 
-            // }
-
-            // var myString = true; 
-            // var message = "hello Codeup!"
-            // switch (message) {
-            //     case "hello Codeup!":
-            //         console.log('myString is true!');
-            //         break;
-            //     default:
-            //         console.log('myString is false!'); 
-            //         break;
-            // }
-            // while (true) { 
-            //     console.log('the loop is running!');
-            // }
-            // var i = 2; 
-            // while (i <= 12) { 
-            //     console.log(i); 
-            //     i += 2; 
-            // }
-
-            // function sayHello (cohortName, morningWeather) {
-            //     console.log("Hello " + cohortName + "!");
-            //     console.log("How are you guys doing today?");
-            //     console.log("It was kind of " + morningWeather + " this morning, yea?");
-
-            //     sayMyName();
-            // }
-
-            // function sayMyName () {
-            //     console.log("Heisenberg");
-            // }
-
-            // function adding(num1, num2) {
-            //     var result = num1 + num2;
-            //     return result;
-            //     return num1 = num2;
-            // }
-
-            // var subtract = function(num1, num2) {
-            //     return num1 - num2;
-            // }
-            // var sum = adding(235, adding(135, adding (345, 67894)));
-            // console.log("The sum was " + sum);
-
-            // var addition = adding;
-
-            // var difference = subtract(124,49);
-            // console.log("The difference is " +difference);
-
-            // var result = sayHello("Joshua", "sunny");
-            // console.log(result);
-            // sayHello("Ike", "cloudy");
-            // sayHello("Badlands", "rainy");
-            // sayHello("Marcus", "humid");
-            // sayHello("Isaac", "hot");
-            // sayMyName();
-
-            // var anotherName = "Kari";
-            // sayHello(anotherName, "cold");
-
-            // var globalVar = "Look, I'm Global!";
-
-            // sayHello();
-
-            // function sayHello() {
-            //     var localVar = "Look, I'm local!";
-            //     console.log (globalVar);
-            //     console.log(localVar);
-            // }
-
-            // console.log(localVar)
-
-            // var globalVar = "Look, I'm Global!";
-            // sayHello();
-            // function sayHello() {
-            //     var globalVar = "Look, I'm Local globalVar!";
-            //     console.log(globalVar);
-            // }
-
-            // console.log(globalVar)
-
-            // sayHello1(); 
-            // sayHello2(); 
-
-            // function sayHello1 () {
-            // alert('Greetings from sayHello1.');
-            // }
-
-            // var sayHello2 = function () {
-            // alert('Greetings from sayHello2.');
-            // };
-
-          // var shapes = ['square', 'rectangle', 'circle', 'triangle', 'diamond', 'trapezoid', 'parallelogram'];
-
-          
-            // console.log('There are ' + shapes.length + ' shapes in the array');
-
-            // console.log('The first shape is: ' + shapes[0]);
-
-
-            // console.log('The second shape is: ' + shapes[1]);
-
-
-            // console.log('The third shape is: ' + shapes[2]);
-
-
-            // console.log('The fourth shape is: ' + shapes[3]);
-
-
-            // console.log('The fifth shape is: ' + shapes[4]);
-
-            // for (var i = 0; i < shapes.length; i++) {
-            //     console.log('The shape at index ' + i + ' is: ' + shapes[i]);
-            // }
-
-            // shapes.forEach(function(element, index, array){
-            //     console.log('The shape at index ' + index + ' is: ' + element);
-            // });
-
-            // var movies = ['The Shawshank Redemption', 'The Color Purple', 'Coming to America', 'Zoolander', "It's Complicated", 'The Breakfast Club', 'Pootie Tang', 'Star Wars: A New Hope', 'Interstellar', 'The Hunt for Red October'];
-
-            // movies.forEach(function(element, index, array){
-            //         if (element == movies[1]) {
-            //             console.log('My favorite movie is ' + movies[1]);
-            //         } else {
-            //             console.log('I can always watch ' + element);
-            //         }
-            // });
-
             (function () {
-                  "use strict";
+                "use strict";
+                
+                var count = 0;
 
-                  var car = {};
-                  car.make = "Toyota";
-                  car.model = "Camry";
+                var intervalID = setInterval(function(){
+                    alert("Hi everybody!");
+                    if (count > 3){
+                        clearInterval(intervalID);
+                    }
+                    count++;
+                }, 3000);
 
-                  // create a logMakeModel method on the car object
-                  car.logMakeModel = function () {
-                      console.log('Car make/model is: ' + this.make + ' ' + this.model);
-                  };
+                function timeoutFunction() {
+                    count++;
+                    alert("Timeout!" + count);
 
-                  // log the make/model
-                  car.logMakeModel();
+                    if (count < 3) {
+                        anotherTimeout = setTimeout(timeoutFunction, 1000);
+                    }
+                }
 
+                var anotherTimeout = setTimeout(timeoutFunction, 1000);
             })();
             
         </script>
