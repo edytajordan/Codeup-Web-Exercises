@@ -56,14 +56,14 @@
                     //number button functionality
                     var numBtn = document.getElementsByClassName('number');
 
-                    if (leftInput == false) {
-                        var listener = function(event) {
-                            var number = this.getAttribute('data-number');
-                            leftOperand.value = (leftOperand.value + number);
-                        }
-                    } else {
-                        rightOperand.value = (rightOperand.value + number);
-                    }
+                    var listener = function(event) {
+                        var number = this.getAttribute('data-number');
+                        if (leftInput == false) {
+                            leftOperand.value = (leftOperand.value + number);  
+                        } else {
+                            rightOperand.value = (rightOperand.value + number);  
+                        }  
+                    };
                     
                     for (var i= 0; i < numBtn.length; i++){
                         numBtn[i].addEventListener('click', listener, false); 
@@ -75,7 +75,10 @@
                     var listenerOp = function(event) {
                         var operator = this.getAttribute('data-operator');
                         operatorVar.value = operator;
-                    }
+                        if (leftOperand.value != '') {
+                            leftInput = true;
+                        }
+                    };
                     
                     for (var i= 0; i < opBtn.length; i++){
                         opBtn[i].addEventListener('click', listenerOp, false); 
