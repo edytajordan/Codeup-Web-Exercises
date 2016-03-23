@@ -10,26 +10,34 @@
             (function () {
                 "use strict";
                 
-                var count = 0;
+                var myComputer = {
+                    users: ['codeup'],
 
-                var intervalID = setInterval(function(){
-                    alert("Hi everybody!");
-                    if (count > 3){
-                        clearInterval(intervalID);
+                    showUsers: function(){
+                        console.log(this.users);
+                    },
+
+                    addUser: function(user){
+                        this.users.push(user);
+                    },
+
+                    removeUser: function(userToRemove){
+                        var index = this.users.indexOf(user);
+                        if(index > -1) {
+                            this.users.splice(index, 1);
+                        } else {
+                            console.log('User ' + user + ' does not exist');
+                        }
                     }
-                    count++;
-                }, 3000);
+                };
 
-                function timeoutFunction() {
-                    count++;
-                    alert("Timeout!" + count);
+                myComputer.showUsers(); // output: 'codeup'
 
-                    if (count < 3) {
-                        anotherTimeout = setTimeout(timeoutFunction, 1000);
-                    }
-                }
+                myComputer.addUser('zach');
+                myComputer.showUsers(); // output: 'codeup, zach'
 
-                var anotherTimeout = setTimeout(timeoutFunction, 1000);
+                myComputer.removeUser('zach');
+                myComputer.showUsers(); // output: 'codeup'
             })();
             
         </script>
