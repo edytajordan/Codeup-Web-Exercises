@@ -50,12 +50,19 @@
                     var operatorVar = document.getElementById('operator');
                     var rightOperand = document.getElementById('rightoperand');
 
+                    var leftInput = false;
+                    
+
                     //number button functionality
                     var numBtn = document.getElementsByClassName('number');
 
-                    var listener = function(event) {
-                        var number = this.getAttribute('data-number');
-                        leftOperand.value = (leftOperand.value + number);
+                    if (leftInput == false) {
+                        var listener = function(event) {
+                            var number = this.getAttribute('data-number');
+                            leftOperand.value = (leftOperand.value + number);
+                        }
+                    } else {
+                        rightOperand.value = (rightOperand.value + number);
                     }
                     
                     for (var i= 0; i < numBtn.length; i++){
