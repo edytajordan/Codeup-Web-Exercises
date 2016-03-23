@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>I'm Finna Kakalate Some Stuff!</title>
+        <link rel="stylesheet" href="/css/calculator.css">
+    </head>
+    <body>
+        <h1>Calculator</h1>
+
+        <div id="input">
+            <input type="text" id="leftoperand">
+            <input type="text" id="operator">
+            <input type="text" id="rightoperand">
+        </div>
+        <div id="row-1">
+            <button id="btn-1">1</button>
+            <button id="btn-2">2</button>
+            <button id="btn-3">3</button>
+            <button id="btn-+">+</button>
+        </div>
+
+        <div id="row-2">
+            <button id="btn-4">4</button>
+            <button id="btn-5">5</button>
+            <button id="btn-6">6</button>
+            <button id="btn--">-</button>
+        </div>
+        
+        <div id="row-3">
+            <button id="btn-7">7</button>
+            <button id="btn-8">8</button>
+            <button id="btn-9">9</button>
+            <button id="btn-*">*</button>
+        </div>
+        
+        <div id="row-4">
+            <button id="btn-C">C</button>
+            <button id="btn-0">0</button>
+            <button id="btn-=">=</button>
+            <button id="btn-/">/</button>
+        </div>
+        
+        <script>
+            (function(){
+                "use strict";
+                
+                    // btn-1 functionality
+                    var btn1 = document.getElementById('btn-1');
+                    var listener = function(event) {
+                        console.log(1);  
+                    }
+                    btn1.addEventListener('click', listener, false);
+
+                    // btn-2 functionality
+                    var btn2 = document.getElementById('btn-2');
+                    var listener2 = function(event) {
+                        console.log(2);  
+                    }
+                    btn2.addEventListener('click', listener2, false);
+
+                    // btn-3 functionality
+                    var btn3 = document.getElementById('btn-3');
+                    var listener3 = function(event) {
+                        console.log(3);  
+                    }
+                    btn3.addEventListener('click', listener3, false);
+
+                    // btn-+ functionality
+                    var btnPlus = document.getElementById('btn-+');
+                    var listenerPlus = function(event) {
+                        console.log('plus');  
+                    }
+                    btnPlus.addEventListener('click', listenerPlus, false);
+
+                    // btn-4 functionality
+                    var btn4 = document.getElementById('btn-4');
+                    var listener4 = function(event) {
+                        console.log(4);  
+                    }
+                    btn4.addEventListener('click', listener4, false);
+
+                    // btn-5 functionality
+                    var btn5 = document.getElementById('btn-5');
+                    var listener5 = function(event) {
+                        console.log(5);  
+                    }
+                    btn5.addEventListener('click', listener5, false);
+
+                    // btn-6 functionality
+                    var btn6 = document.getElementById('btn-6');
+                    var listener6 = function(event) {
+                        console.log(6);  
+                    }
+                    btn6.addEventListener('click', listener6, false);
+
+                    // btn-- functionality
+                    var btnMinus = document.getElementById('btn--');
+                    var listenerMinus = function(event) {
+                    console.log('minus');  
+                    }
+                    btnMinus.addEventListener('click', listenerMinus, false);
+
+                    // btn-7 functionality
+                    var btn7 = document.getElementById('btn-7');
+                    var listener7 = function(event) {
+                    console.log(7);  
+                    }
+                    btn7.addEventListener('click', listener7, false);
+
+                    // btn-8 functionality
+                    var btn8 = document.getElementById('btn-8');
+                    var listener8 = function(event) {
+                    console.log(8);  
+                    }
+                    btn8.addEventListener('click', listener8, false);
+
+                    // btn-9 functionality
+                    var btn9 = document.getElementById('btn-9');
+                    var listener9 = function(event) {
+                    console.log(9);  
+                    }
+                    btn9.addEventListener('click', listener9, false);
+
+                    // btn-* fucntionality
+                    var btnMultiply = document.getElementById('btn-*');
+                    var listenerMultiply = function(event) {
+                    console.log('multiply');  
+                    }
+                    btnMultiply.addEventListener('click', listenerMultiply, false);
+
+                    // btn-C functionality
+                    var btnC = document.getElementById('btn-C');
+                    var listenerC = function(event) {
+                    console.log('C');  
+                    
+                    }
+                    btnC.addEventListener('click', listenerC, false);
+
+                    //btn-0 functionality
+                    var btn0 = document.getElementById('btn-0');
+                    var listener0 = function(event) {
+                    console.log(0);  
+                    }
+                    btn0.addEventListener('click', listener0, false);
+
+                    // btn-= functionality
+                    var btnEqual = document.getElementById('btn-=');
+                    var listenerEqual = function(event) {
+                    console.log('equal');  
+                    }
+                    btnEqual.addEventListener('click', listenerEqual, false);
+
+                    // btn-/ functionality
+                    var btnDivide = document.getElementById('btn-/');
+                    var listenerDivide = function(event) {
+                    console.log('divide');  
+                    }
+                    btnDivide.addEventListener('click', listenerDivide, false);
+            })();
+        </script>
+    </body>
+</html>
