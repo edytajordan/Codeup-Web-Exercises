@@ -9,9 +9,9 @@
         <h1>Calculator</h1>
 
         <form id="input">
-                <input type="text" id="leftoperand">
-                <input type="text" id="operator">
-                <input type="text" id="rightoperand">
+                <input type="text" id="leftoperand" data-input="left">
+                <input type="text" id="operator" data-input="operator">
+                <input type="text" id="rightoperand" data-input="right">
         </form>
         
         <div id="row-1">
@@ -45,13 +45,17 @@
         <script>
             (function(){
                 "use strict";
+                    // global variables
+                    var leftOperand = document.getElementById('leftoperand');
+                    var operatorVar = document.getElementById('operator');
+                    var rightOperand = document.getElementById('rightoperand');
 
                     //number button functionality
                     var numBtn = document.getElementsByClassName('number');
 
                     var listener = function(event) {
                         var number = this.getAttribute('data-number');
-                        console.log(number);
+                        leftOperand.value = (leftOperand.value + number);
                     }
                     
                     for (var i= 0; i < numBtn.length; i++){
@@ -63,7 +67,7 @@
 
                     var listenerOp = function(event) {
                         var operator = this.getAttribute('data-operator');
-                        console.log(operator);
+                        operatorVar.value = operator;
                     }
                     
                     for (var i= 0; i < opBtn.length; i++){
