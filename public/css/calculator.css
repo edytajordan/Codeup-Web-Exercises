@@ -1,12 +1,35 @@
+/*Font*/
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+/*Image Formatting*/
+img {
+    height:200px;
+    width: 200px;
+}
+
+.image {
+    text-align: center;
+}
+
+/*Heading Formatting*/
+h1 {
+    font-family: "Coming Soon", san-serif;
+    text-align: center;
+}
+
 /*Formatting for Input Boxes*/
+form {
+    text-align: center;
+    padding: 5px;
+}
 #leftoperand {
-    width: 35px;
+    width: 130px;
 }
 #operator {
-    width: 15px;
+    width: 30px;
 }
 #rightoperand {
-    width: 35px;
+    width: 130px;
 }
 /*Formatting for buttons*/
 #row-1 {
@@ -21,3 +44,13 @@
 #row-4 {
     padding: 5px;
 }
+.equal-button {
+    
+    padding: 5px;
+    width: 120px;
+}
+
+
+
+
+
