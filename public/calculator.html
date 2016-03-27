@@ -90,9 +90,11 @@
                             <div class="btn-group posneg-button" role="group">
                                 <button id="btn-posneg" data-posneg="-" class="pos-neg btn btn-default" type="button">+/-</button>
                             </div>
+                            <div class="btn-group sqrt-button" role="group">
+                                <button id="btn-sqrt" data-operator="√" class="operator btn btn-default" type="button">√</button>
+                            </div>
                         </div>
                     </div>
-                      
             </div>
             
             <div class="col-sm-4">
@@ -177,6 +179,8 @@
                     
                     posNeg.addEventListener('click', listenerPosNeg, false); 
 
+
+
                     // equal button functionality
                     var equalBtn = document.getElementsByClassName('equal');
 
@@ -194,6 +198,8 @@
                             result = parseFloat(leftOperand.value) * parseFloat(rightOperand.value);
                         } else if (middle == '/') {
                            result = parseFloat(leftOperand.value) / parseFloat(rightOperand.value); 
+                        } else if (middle == '√') {
+                            result = Math.sqrt(leftOperand.value);
                         }
 
                         leftOperand.value = result;
