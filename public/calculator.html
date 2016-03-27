@@ -3,17 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>My Ugly Calculator</title>
-        <!-- My Personalized CSS -->
-        <link rel="stylesheet" href="/css/calculator.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- My Personalized CSS -->
+        <link rel="stylesheet" href="/css/calculator.css">
     </head>
     <body>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 
             </div>
-            <div class="box col-md-4">
+            <div class="box col-sm-4">
                 <h1>I'm Ugly, but I Work</h1>
                 <div class="image">
                      <img src="/img/ugly-dog.jpg" alt="Ugly Dog" class="img-rounded">
@@ -83,18 +83,19 @@
                                 <button id="btn-decimal" data-decimal="." class="decimal btn btn-default" type="button">.</button>
                             </div>
                         </div>
-                        <div class="equal-button btn-group btn-group-justified" role="group" aria-label="label">
-                            <div class="btn-group" role="group">
+                        <div id="row-5" class="btn-group btn-group-justified" role="group" aria-label="label">
+                            <div class="btn-group equal-button" role="group">
                                 <button id="btn-=" data-equal="=" class="equal btn btn-default" type="button">=</button>
+                            </div>
+                            <div class="btn-group posneg-button" role="group">
+                                <button id="btn-posneg" data-posneg="-" class="pos-neg btn btn-default" type="button">+/-</button>
                             </div>
                         </div>
                     </div>
-                    
-                    
-                    
+                      
             </div>
             
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 
             </div>
         </div>
@@ -159,6 +160,22 @@
                     for (var i= 0; i < opBtn.length; i++){
                         opBtn[i].addEventListener('click', listenerOp, false); 
                     }
+
+                    // positive/negative button functionality
+
+                    var posNeg = document.getElementById('btn-posneg');
+                    var listenerPosNeg = function(event) {
+                        var leftOperandIsNegative = leftOperand.value.indexOf('-') != -1;
+                        var rightOperandIsNegative = rightOperand.value.indexOf('-') != -1;
+
+                        if (leftInput == false && !leftOperandIsNegative) {
+                            leftOperand.value = ('-' + leftOperand.value);  
+                        } else if (!rightOperandIsNegative) {
+                            rightOperand.value = ('-' + rightOperand.value );  
+                        } 
+                    };
+                    
+                    posNeg.addEventListener('click', listenerPosNeg, false); 
 
                     // equal button functionality
                     var equalBtn = document.getElementsByClassName('equal');

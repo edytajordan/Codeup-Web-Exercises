@@ -25,12 +25,15 @@ form {
 }
 #leftoperand {
     width: 130px;
+    border-color: #1957FF;
 }
 #operator {
     width: 30px;
+    border-color: #1957FF;
 }
 #rightoperand {
     width: 130px;
+    border-color: #1957FF;
 }
 /*Formatting for buttons*/
 #row-1 {
@@ -48,11 +51,14 @@ form {
 .equal-button {
     
     padding: 5px;
-    width: 120px;
+    
 }
-.btn-group{
-    color: #2D0CE8 !important;
-    font-weight: bold !important; 
+.btn:hover {
+    font-weight: bold !important;
+}
+.btn {
+    background-color: #1957FF !important;
+    color: #FFF !important;
 }
 
 
