@@ -13,8 +13,9 @@ img {
 
 /*Heading Formatting*/
 h1 {
-    font-family: "Coming Soon", san-serif;
+    font-family: "Coming Soon", san-serif !important;
     text-align: center;
+    color: #0C1EE8 !important;
 }
 
 /*Formatting for Input Boxes*/
@@ -48,6 +49,10 @@ form {
     
     padding: 5px;
     width: 120px;
+}
+.btn-group{
+    color: #2D0CE8 !important;
+    font-weight: bold !important; 
 }
 
 
