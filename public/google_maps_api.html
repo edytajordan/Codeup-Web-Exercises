@@ -23,7 +23,7 @@
         // Set our map options
         var mapOptions = {
             // Set the zoom level
-            zoom: 19,
+            zoom: 10,
 
             // This sets the center of the map at our location
             center: {
@@ -56,37 +56,82 @@
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-        // Create lat and long for our marker position
-        var cured = { lat: 29.441938, lng: -98.479965 };
+        
+        
+        
 
-        // Add the marker to our existing map
-        var marker = new google.maps.Marker({
-            animation: google.maps.Animation.DROP,
-            position: cured,
-            map: map,
-        });
-
-        // Create a new infoWindow object with content
-      
-            var contentString = '<div id= "content">' +
+    // Restaurant Variable in JSON format
+    var restaurants = [
+        {
+            "name": "Cured",
+            "lat": 29.441938, 
+            "lng": -98.479965,
+            "description": '<div class= "content">' +
+                '<div id="siteNotice">' +
+                '</div>'+
+                '<h1 id= "firstHeading" class="firstHeading">Cured</h1>' +
+                '<div id = "subHeading">' +
+                '<p><em>Charcuterie-based fare in a chic space</em></p>' +
+                '</div>' +
+                '<div id= "bodyContent">' +
+                '<p><em>Cured</em> is one of my favorite restaurants in San Antonio because their brunch is excellent and their atmosphere is a relaxing escape from the bustling farmers market. They have delicious, fresh-squeezed orange juice (which makes for fantastic mimosas), succulent praline bacon, and biscuits that will make you want to slap your mama.</p>' +
+                '</div>' +
+                '</div>'
+        },
+        {
+            "name": "Texas Two Step",
+            "lat": 29.533823, 
+            "lng": -98.681806,
+            "description": '<div class= "content">' +
             '<div id="siteNotice">' +
             '</div>'+
-            '<h1 id= "firstHeading" class="firstHeading">Cured</h1>' +
+            '<h1 id= "firstHeading" class="firstHeading">Texas Two Step</h1>' +
             '<div id = "subHeading">' +
-            '<p><emCharcuterie-based fare in a chic space</em></p>' +
+            '<p><em>Oak-smoked BBQ, Texas fare, and margaritas</em></p>' +
             '</div>' +
             '<div id= "bodyContent">' +
-            '<p><em>Cured</em> is one of my favorite restaurants in San Antonio because their brunch is excellent and their atmosphere is a relaxing escape from the bustling farmers market. They have delicious, fresh-squeezed orange juice (which makes for fantastic mimosas), succulent praline bacon, and biscuits that will make you want to slap your mama.</p>' +
+            '<p><em>Texas Two Step</em> is one of my favorite restaurants in San Antonio because they have a laid-back atmosphere, great margaritas, and delicious food too</p>' +
             '</div>' +
-            '</div>';
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
+            '</div>'
+        },
+        {
+            "name": "Whiskey Cake",
+            "lat": 29.594415,
+            "lng": -98.615204,
+            "description": '<div class= "content">' +
+            '<div id="siteNotice">' +
+            '</div>'+
+            '<h1 id= "firstHeading" class="firstHeading">Whiskey Cake</h1>' +
+            '<div id = "subHeading">' +
+            '<p><em>Stand-by with seasonal eats & cocktails</em></p>' +
+            '</div>' +
+            '<div id= "bodyContent">' +
+            '<p><em>Texas Two Step</em> is one of my favorite restaurants in San Antonio because literally everything I have tried here is crazy delicious; drinks, food, and their signature whiskey cake.</p>' +
+            '</div>' +
+            '</div>'
+        }
+    ]       
 
-        // Event Listener to open Info Window when marker is clicked
+    //forEach Loop
+    restaurants.forEach(function(restaurant, index, array){
+        // adds marker to map & adds DROP animation
+        var marker = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
+            position: {
+                lat: restaurant.lat,
+                lng: restaurant.lng 
+            }, 
+            map: map,
+        });
+        // creates info window to map
+        var infowindow = new google.maps.InfoWindow({
+            content: restaurant.description
+        });
+        // opens info window when marker clicked
         marker.addListener('click', function() {
             infowindow.open(marker.get('map'), marker);
         });
+    });
 
     })();
     </script>
