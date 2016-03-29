@@ -23,13 +23,13 @@
         // Set our map options
         var mapOptions = {
             // Set the zoom level
-            zoom: 19,
+            zoom: 20,
 
             // This sets the center of the map at our location
-            // center: {
-            //     lat:  29.426791,
-            //     lng: -98.489602
-            // }
+            center: {
+                lat:  29.441938,
+                lng: -98.479965,
+            }
         };
 
         // Set our address to geocode
@@ -53,8 +53,19 @@
            }
         });
 
+        
+
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        // Create lat and long for our marker position
+        var cured = { lat: 29.441938, lng: -98.479965 };
+
+        // Add the marker to our existing map
+        var marker = new google.maps.Marker({
+            position: cured,
+            map: map
+        });
     })();
     </script>
 </body>
