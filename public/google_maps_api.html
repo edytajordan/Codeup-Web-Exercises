@@ -65,6 +65,8 @@
             map: map
         });
 
+
+
         // Create a new infoWindow object with content
       
             var contentString = '<div id= "content">' +
@@ -82,8 +84,10 @@
             content: contentString
         });
 
-        // Open the window using our map and marker
-        infowindow.open(map, marker);
+        // Event Listener to open Info Window when marker is clicked
+        marker.addListener('click', function() {
+            infowindow.open(marker.get('map'), marker);
+        });
     })();
     </script>
 </body>
