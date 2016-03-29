@@ -66,8 +66,20 @@
         });
 
         // Create a new infoWindow object with content
+      
+            var contentString = '<div id= "content">' +
+            '<div id="siteNotice">' +
+            '</div>'+
+            '<h1 id= "firstHeading" class="firstHeading">Cured</h1>' +
+            '<div id = "subHeading">' +
+            '<p><emCharcuterie-based fare in a chic space</em></p>' +
+            '</div>' +
+            '<div id= "bodyContent">' +
+            '<p><em>Cured</em> is one of my favorite restaurants in San Antonio because their brunch is excellent and their atmosphere is a relaxing escape from the bustling farmers market. They have delicious, fresh-squeezed orange juice (which makes for fantastic mimosas), succulent praline bacon, and biscuits that will make you want to slap your mama.</p>' +
+            '</div>' +
+            '</div>';
         var infowindow = new google.maps.InfoWindow({
-            content: "Cured: Charcuterie-based fare in a chic space"
+            content: contentString
         });
 
         // Open the window using our map and marker
