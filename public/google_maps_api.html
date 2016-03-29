@@ -61,11 +61,11 @@
 
         // Add the marker to our existing map
         var marker = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
             position: cured,
-            map: map
+            map: map,
+            draggable: true,
         });
-
-
 
         // Create a new infoWindow object with content
       
@@ -88,6 +88,7 @@
         marker.addListener('click', function() {
             infowindow.open(marker.get('map'), marker);
         });
+
     })();
     </script>
 </body>
