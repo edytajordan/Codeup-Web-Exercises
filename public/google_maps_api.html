@@ -56,11 +56,8 @@
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-        
-        
-        
 
-    // Restaurant Variable in JSON format
+    // Restaurant Object in JSON format
     var restaurants = [
         {
             "name": "Cured",
@@ -72,6 +69,8 @@
                 '<h1 id= "firstHeading" class="firstHeading">Cured</h1>' +
                 '<div id = "subHeading">' +
                 '<p><em>Charcuterie-based fare in a chic space</em></p>' +
+                '<div class="image">' +
+                '<img src= "/img/cured.png"'+
                 '</div>' +
                 '<div id= "bodyContent">' +
                 '<p><em>Cured</em> is one of my favorite restaurants in San Antonio because their brunch is excellent and their atmosphere is a relaxing escape from the bustling farmers market. They have delicious, fresh-squeezed orange juice (which makes for fantastic mimosas), succulent praline bacon, and biscuits that will make you want to slap your mama.</p>' +
@@ -89,6 +88,8 @@
             '<div id = "subHeading">' +
             '<p><em>Oak-smoked BBQ, Texas fare, and margaritas</em></p>' +
             '</div>' +
+            '<div class="image">' +
+                '<img src= "/img/texas-two-step.jpg"'+
             '<div id= "bodyContent">' +
             '<p><em>Texas Two Step</em> is one of my favorite restaurants in San Antonio because they have a laid-back atmosphere, great margaritas, and delicious food too</p>' +
             '</div>' +
@@ -105,8 +106,10 @@
             '<div id = "subHeading">' +
             '<p><em>Stand-by with seasonal eats & cocktails</em></p>' +
             '</div>' +
+            '<div class="image">' +
+                '<img src= "/img/whiskey-cake.jpg"'+
             '<div id= "bodyContent">' +
-            '<p><em>Texas Two Step</em> is one of my favorite restaurants in San Antonio because literally everything I have tried here is crazy delicious; drinks, food, and their signature whiskey cake.</p>' +
+            '<p><em>Whiskey Cake</em> is one of my favorite restaurants in San Antonio because literally everything I have tried here is crazy delicious; drinks, food, and their signature whiskey cake.</p>' +
             '</div>' +
             '</div>'
         }
@@ -114,22 +117,24 @@
 
     //forEach Loop
     restaurants.forEach(function(restaurant, index, array){
-        // adds marker to map & adds DROP animation
-        var marker = new google.maps.Marker({
+        // adds custom marker to map & adds DROP animation
+        var image = "/img/fork-knife-spoon.png";
+        var foodMarker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             position: {
                 lat: restaurant.lat,
                 lng: restaurant.lng 
             }, 
             map: map,
+            icon: image
         });
         // creates info window to map
         var infowindow = new google.maps.InfoWindow({
             content: restaurant.description
         });
         // opens info window when marker clicked
-        marker.addListener('click', function() {
-            infowindow.open(marker.get('map'), marker);
+        foodMarker.addListener('click', function() {
+            infowindow.open(foodMarker.get('map'), foodMarker);
         });
     });
 
