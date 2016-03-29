@@ -64,6 +64,14 @@
             position: cured,
             map: map
         });
+
+        // Create a new infoWindow object with content
+        var infowindow = new google.maps.InfoWindow({
+            content: "Cured: Charcuterie-based fare in a chic space"
+        });
+
+        // Open the window using our map and marker
+        infowindow.open(map, marker);
     })();
     </script>
 </body>
