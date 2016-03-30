@@ -56,6 +56,10 @@
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
+        // Traffic layover
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map);
+
 
     // Restaurant Object in JSON format
     var restaurants = [
@@ -75,7 +79,8 @@
                 '<div id= "bodyContent">' +
                 '<p><em>Cured</em> is one of my favorite restaurants in San Antonio because their brunch is excellent and their atmosphere is a relaxing escape from the bustling farmers market. They have delicious, fresh-squeezed orange juice (which makes for fantastic mimosas), succulent praline bacon, and biscuits that will make you want to slap your mama.</p>' +
                 '</div>' +
-                '</div>'
+                '</div>',
+            "image": "img/bacon.png"
         },
         {
             "name": "Texas Two Step",
@@ -93,7 +98,8 @@
                 '<div id= "bodyContent">' +
                 '<p><em>Texas Two Step</em> is one of my favorite restaurants in San Antonio because they have a laid-back atmosphere, great margaritas, and delicious food too</p>' +
                 '</div>' +
-                '</div>'
+                '</div>',
+            "image":"img/cowboy-boots.jpeg"
         },
         {
             "name": "Whiskey Cake",
@@ -111,14 +117,14 @@
                 '<div id= "bodyContent">' +
                 '<p><em>Whiskey Cake</em> is one of my favorite restaurants in San Antonio because literally everything I have tried here is crazy delicious; drinks, food, and their signature whiskey cake.</p>' +
                 '</div>' +
-                '</div>'
+                '</div>',
+            "image": "img/cocktail.jpg"
         }
     ]       
 
     //forEach Loop
     restaurants.forEach(function(restaurant, index, array){
         // adds custom marker to map & adds DROP animation
-        var image = "/img/fork-knife-spoon.png";
         var foodMarker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             position: {
@@ -126,7 +132,7 @@
                 lng: restaurant.lng 
             }, 
             map: map,
-            icon: image
+            icon: restaurant.image
         });
         // creates info window to map
         var infowindow = new google.maps.InfoWindow({
@@ -136,6 +142,22 @@
         foodMarker.addListener('click', function() {
             infowindow.open(foodMarker.get('map'), foodMarker);
         });
+        // Directions to each restaurant
+        var DirectionsRequest = {
+            origin: LatLng | String | google.maps.Place,
+            destination: LatLng | String | google.maps.Place,
+            travelMode: TravelMode,
+            transitOptions: TransitOptions,
+            drivingOptions: DrivingOptions,
+            unitSystem: UnitSystem,
+            waypoints[]: DirectionsWaypoint,
+            optimizeWaypoints: Boolean,
+            provideRouteAlternatives: Boolean,
+            avoidHighways: Boolean,
+            avoidTolls: Boolean,
+            region: String
+        }
+        var DirectionsService = DirectionsService.route();
     });
 
     })();
