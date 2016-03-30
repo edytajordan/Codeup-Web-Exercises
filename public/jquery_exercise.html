@@ -5,10 +5,10 @@
         <title>jQuery Exercise</title>
     </head>
     <body>
-        <div class="upper">
-            <h1 class="upper" id="heading-1">This is My jQuery Heading</h1>
-            <p class="middle">This is my jQuery paragraph</p>
-            <ul class="working">
+        <div>
+            <h1 class="codeup" id="heading-1">This is My jQuery Heading</h1>
+            <p class="codeup">This is my jQuery paragraph</p>
+            <ul class="working" id="codeup">
                 <li id="li-1">jQuery list item 1</li>
                 <li id="li-2">jQuery list item 2</li>
                 <li id="li-3">jQuery list item 3</li>
@@ -18,11 +18,7 @@
         <script>
             "use strict";
             $(document).ready(function(){
-                var contents = $("#heading-1").html();
-                alert(contents);
-
-                var moreContents =$("#li-3").html();
-                alert(moreContents);
+                $(".codeup").css("border", "1px solid red");
             });
         </script>
     </body>
