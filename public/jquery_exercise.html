@@ -18,9 +18,20 @@
         <script>
             "use strict";
             $(document).ready(function(){
-                $("h1, p, li").css("font-size", "20px");
-                var contents = $("h1"). html();
-                alert(contents);
+                var $header = $("h1").click(function(){
+                    $("h1").css("background-color", "purple");
+                }); 
+                var $paragraph = $("p").dblclick(function(){
+                    $("p").css("font-size", "18px");
+                });
+                $("li").hover(
+                    function() {
+                        $(this).css("color", "red");
+                    }, 
+                    function() {
+                        $(this).css("color", "white");
+                    } 
+                );
             });
         </script>
     </body>
