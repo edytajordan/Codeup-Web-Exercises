@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery Exercise</title>
+    </head>
+    <body>
+        <div class="upper">
+            <h1 class="upper" id="heading-1">This is My jQuery Heading</h1>
+            <p class="middle">This is my jQuery paragraph</p>
+            <ul class="working">
+                <li id="li-1">jQuery list item 1</li>
+                <li id="li-2">jQuery list item 2</li>
+                <li id="li-3">jQuery list item 3</li>
+            </ul>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script>
+            "use strict";
+            $(document).ready(function(){
+                var contents = $("#heading-1").html();
+                alert(contents);
+
+                var moreContents =$("#li-3").html();
+                alert(moreContents);
+            });
+        </script>
+    </body>
+</html>
