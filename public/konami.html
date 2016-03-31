@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1 class="konami">Konami Code</h1>
+    <p class="konami">Enter the Konami Code here: </p>
+    <audio id="got-theme">
+        <source src="/audio/got-theme.ogg">
+    </audio>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        "use strict";
+        $(document).ready(function() {
+            // array containing Konami code in correct order 
+            var keysPressed = [38,38,40,40,37,39,37,39,66,65,13]
+            var currentKey = 0
+
+            // this should check if the user entered the correct key strokes
+            function checkKeystrokes(keys) {
+                return keys == keysPressed;
+               }
+
+            $(document).keyup(function(event){
+                if (event.keyCode == keysPressed[currentKey]) {
+                    currentKey++;
+                } else {
+                    currentKey = 0;
+                }
+                if (currentKey == keysPressed.length) {
+                    alert('You have added 30 lives!');
+                    currentKey =0;
+                    $('body').css('background-image', 'url(/img/valar-morghulis.jpg)', 'background-size', '100%');
+                    $('.konami').css('color','red');
+                    $('h1').html("You've entered the great game");
+                    $('h1').css('font-family', 'Game of Thrones');
+                    $('p').html("You either win or you die");
+                    $('p').css('font-family', 'Game of Thrones');
+
+                }  
+            });
+        });
+    </script>
+</body>
+</html>
