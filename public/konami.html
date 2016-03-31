@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Konami Code</title>
+    <link rel="stylesheet" href="/css/konami.css">
 </head>
 <body>
     <h1 class="konami">Konami Code</h1>
@@ -32,13 +34,15 @@
                 if (currentKey == keysPressed.length) {
                     alert('You have added 30 lives!');
                     currentKey =0;
-                    $('body').css('background-image', 'url(/img/valar-morghulis.jpg)', 'background-size', '100%');
+                    $('body').css({
+                        'background-image': 'url(/img/valar-morghulis.jpg)', 
+                        'background-size': '100%'});
                     $('.konami').css('color','red');
                     $('h1').html("You've entered the great game");
                     $('h1').css('font-family', 'Game of Thrones');
                     $('p').html("You either win or you die");
                     $('p').css('font-family', 'Game of Thrones');
-
+                    $('#got-theme').get(0).play();
                 }  
             });
         });
