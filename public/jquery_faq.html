@@ -122,7 +122,7 @@
                 // This hides/unhides the answers when the link at the bottom of the section is clicked 
                 $('#faq-link').click(function(event){
                     event.preventDefault();
-                    $('dd').toggle();
+                    $('dd').fadeToggle();
                     $('#faq a').html('Click to hide answers');
                 });
                 
@@ -134,9 +134,11 @@
                 // This hides/unhides the list of facts about the specific national parks
                 $('#fact-link').click(function(event){
                     event.preventDefault();
-                    $('ul').toggle();
+                    $('h3').fadeToggle();
+                    $('ul').fadeToggle();
                     $('#facts a').html('Click to show facts');
                 });
+
             });
         </script>
     </body>
