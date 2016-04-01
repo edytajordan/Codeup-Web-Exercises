@@ -80,13 +80,44 @@
 
         <a href="#" id="link">Click to reveal answers</a>
 
+        <!-- Here's my HTML with specific info about specific parks -->
+        <h1>Park Facts</h1>
+        <h3>Yellowstone National Park</h3>
+        <ul>
+            <li>Yellowstone National Park was established on March 1, 1872.</li>
+            <li>Yellowstone is the world’s first national park.</li>
+            <li>In 2014, park visitation topped the 3 million mark for the eighth straight year. More than one-fourth of the park’s total annual visitation was recorded during the month of July.</li>
+            <li>Has millions of archived documents</li>
+        </ul>
+
+        <hr>
+
+        <h3>Denali National Park</h3>
+        <ul>
+            <li>Denali National Park is the site of the highest peak on the continent of North America. </li>
+            <li>Denali means "The High One" in language of the Athabascan tribe.</li>
+            <li>Denali National Park is home to an abundance of wildlife, but the most striking inhabitant is probably the wood frog-- the only amphibian to call the park home.</li>
+            <li>Hiking trails abound in Denali, but the only trails maintained by the park are the short looping ones located near the hotel. </li>
+        </ul>
+
+        <hr>
+
+        <h3>Big Bend National Park</h3>
+        <ul>
+            <li>Big Bend was established on June 12, 1944</li>
+            <li>This park contains 801,163 acres of land</li>
+            <li>Chihuahuan Desert vegetation—bunchgrasses, creosote bushes, cactuses, lechuguillas, yuccas, sotols, and more—covers most of the terrain.</li>
+            <li>At least 450 species of birds inhabit the park—more than any other national park in the United States.</li>
+        </ul>
         <script>
             "use strict";
             $(document).ready(function() {
+                // This hides/unhides the answers when the link is clicked 
                 $('#link').click(function(event){
                     event.preventDefault();
                     $('dd').toggleClass('invisible');
                 });
+                // This formats the information about the specific national parks 
             });
         </script>
     </body>
