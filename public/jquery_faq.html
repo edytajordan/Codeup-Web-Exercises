@@ -77,5 +77,17 @@
             <dt>How do I obtain a park pass?</dt>
             <dd class="invisible">You can obtain park passes by visiting your nearest park site. Most sites have passes available; we recommend calling a park prior to your visit. </dd>
         </dl>
+
+        <a href="#">Click to reveal answers</a>
+
+        <script>
+            "use strict";
+            $(document).ready(function() {
+                $('.invisible').click(function(event){
+                    event.preventDefault();
+                    $('.invisible').toggleClass('display');
+                });
+            });
+        </script>
     </body>
 </html>
