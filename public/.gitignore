@@ -1,8 +1,7 @@
 add-content.html
 got-theme.ogg
-/css/co1.css
-example.html
 /img
 /js/add-content.js
 /js/jQuery/jquery-2.2.2.min.js
-
+public/css/c01.css
+public/example.html
