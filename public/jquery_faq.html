@@ -78,14 +78,14 @@
             <dd class="invisible">You can obtain park passes by visiting your nearest park site. Most sites have passes available; we recommend calling a park prior to your visit. </dd>
         </dl>
 
-        <a href="#">Click to reveal answers</a>
+        <a href="#" id="link">Click to reveal answers</a>
 
         <script>
             "use strict";
             $(document).ready(function() {
-                $('.invisible').click(function(event){
+                $('#link').click(function(event){
                     event.preventDefault();
-                    $('.invisible').toggleClass('display');
+                    $('dd').toggleClass('invisible');
                 });
             });
         </script>
