@@ -53,11 +53,16 @@
         // TODO: "Hide It" should use opacity to make the box invisible
         $('#btn-hide').click(function(){
             $('#animate-box').animate({
-                
+                opacity: 0,
             });
         });
 
         // TODO: "Show It" should make the box appear
+        $('#btn-show').click(function(){
+            $('#animate-box').animate({
+                opacity: 1,
+            });
+        });
 
         // TODO: "Animate All" should use an animation stack to:
         //      1) Move and scale the box simultaneously
