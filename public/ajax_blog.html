@@ -10,5 +10,19 @@
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            // This script performs a GET request on our blog.json file so we can access/manipulate it 
+
+            $.ajax("/data/blog.json").done(function(blogs){
+                for (var i = 0; i < blogs.length; i++) {
+                    var div = $('<div>');
+                    div.append('<h3>' + blogs[i].title + '</h3>');
+                    div.append('<p>' + blogs[i].date + '</p>');
+                    div.append('<p>' + blogs[i].content + '</p>');
+                    div.append('<p>' + blogs[i].categories + '</p>');
+                    $('#posts').append(div);
+                }
+            });
+        </script>
     </body>
 </html>
