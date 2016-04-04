@@ -30,5 +30,20 @@
             "tool"
         ],
         "price": 10
+    }, {
+        "title": "Grills",
+        "quantity": 900,
+        "categories": [
+            "outdoor"],
+        "price": 599
+    }, {
+        "title": "Hoses"
+        ,
+        "quantity": 60,
+        "categories": [
+            "outdoor",
+            "garden",
+            "lawn"],
+        "price": 50
     }
 ]
