@@ -1,52 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Examples</title>
-    </head>
-    <body>
-        <h1 id="change-my-text" class="change-my-color">Hello World</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+<head>
+    <title>Example jQuery Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="codeup">
+        <h1 class="codeup" id="joshua">Example Page</h1>
+        <p class="post">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        
-        <script>
+    </div>
+    
+
+    <script>
         "use strict";
-        (function() {
-            // change h1 text
-            var changeMyText = document.getElementById('change-my-text');
-
-            console.log(changeMyText.innerHTML);
-
-            changeMyText.innerHTML = "hello, codeup!";
-
-            // change h1 font color
-            var changeMyColor = document.getElementsByClassName('change-my-color');
-
-            for (var i = 0; i < changeMyColor.length; i++) {
-                changeMyColor[i].style.color = 'salmon';
-            }
-
-            // add class to paragraph tags
-            var paragraph = document.getElementsByTagName('p')[0];
-
-            console.log(paragraph.hasAttribute('class'));
-
-            paragraph.setAttribute('class', 'my-paragraph');
-
-            // changing padding on body element
-            var bodyElement = document.getElementsByTagName('body');
-
-            function changePadding(bodyElement) {
-                bodyElement.style.padding = '40px';
-            }
-            for (var i = 0; i < bodyElement.length; i++) {
-                changePadding(bodyElement[i]);
-            }
-        })();
+        (function(){
+            $(document).ready(function(){
+                var html = $('.post').html();
+                console.log(html); 
+            }); 
+        });
     </script>
-    </body>
+</body>
 </html>
