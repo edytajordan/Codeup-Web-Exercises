@@ -68,6 +68,18 @@
         //      1) Move and scale the box simultaneously
         //      2) Hide the box
         //      3) Reset the box back to its original position and opacity
+        $('#btn-all').click(function(){
+            $('#animate-box').animate({
+                left: "+=100px",
+                width: "+=50%",
+                opacity: 0
+            },1000);
+            $('#animate-box').animate({
+                left: "-=100px",
+                width: "-=50%",
+                opacity: 1
+            },1000);
+        });
     });
     </script>
 </body>
