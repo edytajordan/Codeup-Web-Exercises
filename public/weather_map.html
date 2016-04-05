@@ -3,11 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Weather Map</title>
+        <!-- My Personalized Stylesheet -->
+        <link rel="stylesheet" href="/css/weather_map.css">
     </head>
     <body>
         <h1>San Antonio Weather</h1>
         <!-- div for forecast information -->
         <div id="forecast">
+            
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -21,6 +24,7 @@
                 // script to insert forecast data in the browser 
                 for (var i = 0; i < data.list.length; i++) {
                     var div = $('<div>');
+                    div.addClass('block');
                     div.append('<img src = "http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">');
                     div.append('<p>' + data.list[i].weather[0].description + '</p>');
                     div.append('<p> Hi ' + data.list[i].temp.max + '</p>');
