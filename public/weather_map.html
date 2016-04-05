@@ -10,7 +10,10 @@
         <script>
             $.get("http://api.openweathermap.org/data/2.5/weather", {
                 APPID: "0a5faae42ab05b77622877da6f519e86",
-                q:     "San Antonio, TX"
+                q:     "San Antonio, TX",
+                units: "imperial"
+            }).done (function(data){
+                console.log(data);
             });
         </script>
     </body>
