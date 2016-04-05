@@ -21,13 +21,12 @@
                 // script to insert forecast data in the browser 
                 for (var i = 0; i < data.list.length; i++) {
                     var div = $('<div>');
+                    div.append('<img src = "http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">');
                     div.append('<p>' + data.list[i].temp.max + '</p>');
                     div.append('<p>' + data.list[i].temp.min + '</p>');
                     $('#forecast').append(div);
                 }
                 console.log(data);
-                console.log(data.list[0].temp.max);
-                console.log(data.list[0].temp.min);
             });
         </script>
     </body>
