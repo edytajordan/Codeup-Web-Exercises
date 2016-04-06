@@ -2,131 +2,97 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Weather Map</title>
+        <!-- Materialize Compiled and minified CSS -->
+        <link rel="stylesheet" href="/css/materialize.min.css">
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- My Personalized Stylesheet -->
         <link rel="stylesheet" href="/css/weather_map.css">
     </head>
     <body>
-        <h1>Your Weather Source</h1>
-        <h3 id="location">San Antonio</h3>
+        <!-- Top Navigation Bar -->
+        <div>
+            <nav class="navbar-fixed">
+                <div class="nav-wrapper">
+                  <a href="#" class="brand-logo">Weather Source</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                  </ul>
+                </div>
+            </nav> 
+        </div>
+        <!-- Page Header -->
+        <div id="top" class="container grid-example col s12 m6">
+            <span class="flow-text">
+                <h1><img src="/img/weather.png" id="logo">Weather Source<img src="/img/weather.png" id="logo"></h1>
+                <h3 id="location">San Antonio</h3>
+            </span>
+        </div>
+        
         <!-- div for forecast information -->
-        <div id="latLong">
-            <form>
-                <input type="text" placeholder="Latitude" id="lat">
-                <input type="text" placeholder="Longitude" id="lon">
-            </form>
-                <button type="submit" id="submit">Get Your Forecast</button>
-        </div>
-        <div id="forecast">
+        <div id="latLong" class="container grid-example col s12 m6">
+            <span class="flow-text">
+                <form>
+                    <input type="text" placeholder="Latitude" id="lat">
+                    <input type="text" placeholder="Longitude" id="lon">
+                </form>
+                <button class="btn waves-effect waves-light" type="submit" id="submit" name="action">
+                    Get Your Forecast
+                    <i class="material-icons right">send</i>
+                </button>
+            </span>
             
         </div>
-        <div id="map-canvas">
-            
+        <div id="forecast" class="container grid-example col s12 m6"></div>
+        <div id="map-canvas" class="container grid-example col s12 m6">
+           <span class="flow-text">
+               
+           </span>  
         </div>
-        <div id="current">
-                
+        <div id="current" class="container grid-example col s12 m6">
+            <span class="flow-text">
+               
+           </span> 
+        </div>
+        <!-- Page Footer -->
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text"><img src="/img/weather.png" id="logo">Weather Source</h5>
+                <p class="grey-text text-lighten-4">Your on-line source for up-to-date weather information</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Site Map</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Local Forecast</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Doppler Radar</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Video</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">FAQ</a></li>
+                </ul>
+              </div>
             </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 KLC AppDev, LLC
+            <a class="grey-text text-lighten-4 right" href="#!">Contact Us</a>
+            </div>
+          </div>
+        </footer>
 
+        <!-- jQuery CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <!-- Google Map API -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBazzMwgBg_qkFetM-tDCBbxrRMSuSEPNA"></script>
-        <script>
-        (function(){
-        "use strict";
-            // script to load OpenWeather API
-            var defaultLat = 29.424933;
-            var defaultLon = -98.488355;
-
-
-            var defaultWeather = function(event){
-                $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-                lat: defaultLat,
-                lon: defaultLon,
-                APPID: "0a5faae42ab05b77622877da6f519e86",
-                units: "imperial"
-                }).done (function(data){
-                    // script to insert forecast data in the browser 
-                    $('#forecast').html('');
-                    for (var i = 0; i < data.list.length; i++) {
-                        var div = $('<div>');
-                        div.addClass('block');
-                        $('#location').html('<h3>' + data.city.name + '</h3>');
-                        div.append('<img src = "http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">');
-                        div.append('<p>' + data.list[i].weather[0].description + '</p>');
-                        div.append('<p> Hi ' + parseInt(data.list[i].temp.max) + '</p>');
-                        div.append('<p> Lo ' + parseInt(data.list[i].temp.min) + '</p>');
-                        $('#forecast').append(div);
-                    }
-                    console.log(data);
-                });
-            };
-
-            // script to load default weather forecast for San Antonio
-            defaultWeather();
-
-            // script to submit latitude and longitude to change forecast location
-            $(document).on('click', '#submit', function(changeLocation){
-                defaultLat = parseFloat($('#lat').val());
-                defaultLon = parseFloat($('#lon').val());
-          
-                var newCenter = {
-                    lat:  defaultLat,
-                    lng:  defaultLon,
-                };
-    
-                defaultWeather();  
-
-                map.setCenter(newCenter);
-                marker.setPosition(newCenter);
-            });
-
-            // script to add Google map to page
-            // Set our map options
-            var mapOptions = {
-            zoom: 10,
-            center: {
-                lat:  defaultLat,
-                lng: defaultLon,
-                },
-            };
-
-            // Render the map
-            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-            // script for the marker
-
-            var marker = new google.maps.Marker({
-            animation: google.maps.Animation.DROP,
-            position: {
-                lat: mapOptions.center.lat,
-                lng: mapOptions.center.lng,
-            }, 
-            map: map,
-            draggable: true
-            });
-
-            // script to grab new latitude and longitude once marker is dragged
-            google.maps.event.addListener(marker, 'dragend', function(event){
-                $('#lat').val(marker.getPosition().lat().toFixed(3) );
-                $('#lon').val(marker.getPosition().lng().toFixed(3));
-
-                defaultLat = parseFloat($('#lat').val());
-                defaultLon = parseFloat($('#lon').val());
-
-                var newCenter = {
-                    lat:  defaultLat,
-                    lng:  defaultLon,
-                };
-    
-                defaultWeather();  
-
-                map.setCenter(newCenter);
-                marker.setPosition(newCenter);
-
-            });
-            
-            // script to center marker on new location and display on the map
-            marker.setMap(map);
-        })();
-        </script>
+        <!-- Materialize Compiled and minified JavaScript -->
+        <script src="/js/materialize.min.js"></script>
+        <!-- My Personalized JavaScript File -->
+        <script src="/js/weather_map.js"></script>
     </body>
 </html>
