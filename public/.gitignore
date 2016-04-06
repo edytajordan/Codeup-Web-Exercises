@@ -6,5 +6,6 @@ got-theme.ogg
 public/css/c01.css
 public/example.html
 public/example-2.html
-public/css/maeterialize.min.css
-public/fonts
+/css/materialize.min.css
+/fonts
+/js/materialize.min.js
