@@ -35,6 +35,8 @@
             // script to load OpenWeather API
             var defaultLat = 29.424933;
             var defaultLon = -98.488355;
+
+
             var defaultWeather = function(event){
                 $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
                 lat: defaultLat,
@@ -65,26 +67,16 @@
             $(document).on('click', '#submit', function(changeLocation){
                 defaultLat = parseFloat($('#lat').val());
                 defaultLon = parseFloat($('#lon').val());
-                var mapOptions = {
-                zoom: 10,
-                center: {
+          
+                var newCenter = {
                     lat:  defaultLat,
-                    lng: defaultLon,
-                },
-            };
+                    lng:  defaultLon,
+                };
     
                 defaultWeather();  
 
-                var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-                var marker = new google.maps.Marker({
-                    animation: google.maps.Animation.DROP,
-                    position: {
-                        lat: mapOptions.center.lat,
-                        lng: mapOptions.center.lng,
-                    }, 
-                    map: map,
-                    draggable: true
-                    });
+                map.setCenter(newCenter);
+                marker.setPosition(newCenter);
             });
 
             // script to add Google map to page
@@ -116,6 +108,20 @@
             google.maps.event.addListener(marker, 'dragend', function(event){
                 $('#lat').val(marker.getPosition().lat().toFixed(3) );
                 $('#lon').val(marker.getPosition().lng().toFixed(3));
+
+                defaultLat = parseFloat($('#lat').val());
+                defaultLon = parseFloat($('#lon').val());
+
+                var newCenter = {
+                    lat:  defaultLat,
+                    lng:  defaultLon,
+                };
+    
+                defaultWeather();  
+
+                map.setCenter(newCenter);
+                marker.setPosition(newCenter);
+
             });
             
             // script to center marker on new location and display on the map
