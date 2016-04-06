@@ -5,7 +5,12 @@
     height: 195px;
     border: 1px solid black;
 }
+
 #map-canvas {
             width: 770px;
             height: 481px;
         }
+
+#current {
+    padding-top: 25px;
+}
