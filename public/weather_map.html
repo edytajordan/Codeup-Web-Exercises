@@ -101,12 +101,12 @@
 
             // script to grab new latitude and longitude once marker is dragged
             google.maps.event.addListener(marker, 'dragend', function(event){
-                document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + marker.getPosition().lat().toFixed(3) + 'Current Lng: ' + marker.getPosition().lat().toFixed(3) + '</p>';
-            console.log();
+                $('#lat').val(marker.getPosition().lat().toFixed(3) );
+                $('#lon').val(marker.getPosition().lng().toFixed(3));
             });
-            google.maps.event.addListener(marker, 'dragstart', function(event){
-                document.getElementById('current').innerHTML ='<p>Currently dragging marker...</p>';
-            });
+            // google.maps.event.addListener(marker, 'dragstart', function(event){
+            //     $(document).('#current').innerHTML ='<p>Currently dragging marker...</p>';
+            // });
 
             // script to center marker on new location and display on the map
             map.setCenter(marker.position);
