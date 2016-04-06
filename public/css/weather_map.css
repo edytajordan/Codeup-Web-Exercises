@@ -1,9 +1,16 @@
+html {
+    font-family: "Condensed Light", Calibri, Trebuchet, sans-serif;
+  }
+
 .block {
-    display: inline-block;
+    float: left;
     padding: 1em;
     width: 90px; 
     height: 195px;
-    border: 1px solid black;
+    border: 1px solid #004d40;
+    align-content: center;
+    background-color: #e0f2f1;
+    margin: .40em;
 }
 
 #map-canvas {
@@ -13,4 +20,14 @@
 
 #current {
     padding-top: 25px;
+}
+
+#top {
+    text-align: center;
+    color: #004d40;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
 }
