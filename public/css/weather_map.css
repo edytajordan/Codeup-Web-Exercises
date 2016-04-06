@@ -16,11 +16,8 @@ html {
 #map-canvas {
             width: 770px;
             height: 481px;
+            padding-top: 5em;
         }
-
-#current {
-    padding-top: 25px;
-}
 
 #top {
     text-align: center;
