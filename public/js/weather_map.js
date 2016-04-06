@@ -12,7 +12,7 @@
             APPID: "0a5faae42ab05b77622877da6f519e86",
             units: "imperial"
         }).done (function(data){
-                // script to insert forecast data in the browser 
+            // script to insert forecast data in the browser 
             $('#forecast').html('');
             $('#location').html('<h3>' + data.city.name + '</h3>');
             for (var i = 0; i < data.list.length; i++) {
@@ -48,7 +48,6 @@
     });
 
     // script to add Google map to page
-    // Set our map options
     var mapOptions = {
     zoom: 10,
     center: {
