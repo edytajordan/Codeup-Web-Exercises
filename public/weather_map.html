@@ -63,25 +63,38 @@
 
             // script to submit latitude and longitude to change forecast location
             $(document).on('click', '#submit', function(changeLocation){
-                defaultLat = $('#lat').val();
-                defaultLon = $('#lon').val();
+                defaultLat = parseFloat($('#lat').val());
+                defaultLon = parseFloat($('#lon').val());
+                var mapOptions = {
+                zoom: 10,
+                center: {
+                    lat:  defaultLat,
+                    lng: defaultLon,
+                },
+            };
     
                 defaultWeather();  
+
+                var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+                var marker = new google.maps.Marker({
+                    animation: google.maps.Animation.DROP,
+                    position: {
+                        lat: mapOptions.center.lat,
+                        lng: mapOptions.center.lng,
+                    }, 
+                    map: map,
+                    draggable: true
+                    });
             });
 
             // script to add Google map to page
             // Set our map options
             var mapOptions = {
-            
-            // Set the zoom level
             zoom: 10,
-
-            // This sets the center of the map at our location
             center: {
                 lat:  defaultLat,
                 lng: defaultLon,
                 },
-            // mapTypeId: google.maps.mapTypeId.ROADMAP
             };
 
             // Render the map
@@ -104,12 +117,8 @@
                 $('#lat').val(marker.getPosition().lat().toFixed(3) );
                 $('#lon').val(marker.getPosition().lng().toFixed(3));
             });
-            // google.maps.event.addListener(marker, 'dragstart', function(event){
-            //     $(document).('#current').innerHTML ='<p>Currently dragging marker...</p>';
-            // });
-
+            
             // script to center marker on new location and display on the map
-            map.setCenter(marker.position);
             marker.setMap(map);
         })();
         </script>
