@@ -1,6 +1,24 @@
-table {
-   border: 1px solid black;
-   text-align: center; 
+h1 {
+    text-align: center;
+    color: #4a148c;
 }
 
+table {
+   border: 2px solid black;
+   
+}
+
+td {
+  text-align: center;  
+}
+
+td:hover{
+    font-weight: bold;
+}
+
+th {
+    text-align: center;
+    font-weight: bold;
+    color: #f57f17;
+}
 
