@@ -21,7 +21,7 @@
                 $randomNoun = mt_rand(0, count($nouns) - 1);
                 $randomAdjective = mt_rand(0, count($adjectives) - 1);
             ?>
-            <h1><?php echo $adjectives[$randomAdjective].' '.$nouns[$randomNoun] ?></h1>
+            <h1><?= $adjectives[$randomAdjective].' '.$nouns[$randomNoun] ?></h1>
         </div>
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
