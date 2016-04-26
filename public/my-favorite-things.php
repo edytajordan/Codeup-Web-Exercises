@@ -20,14 +20,14 @@
             <tr>
                 <th class="flow-text">My Favorite Things</th>
             </tr>
-                <?php foreach ($favoriteThings as $thing) { ?>
+                <?php foreach ($favoriteThings as $thing): ?>
                     <tr>
                         <td class="flow-text"> 
-                         <?php echo $thing; ?>
+                         <?= $thing; ?>
                     
                         </td>
                     </tr>
-                <?php }  ?>
+                <?php endforeach;  ?>
         </table>   
     </div>
     <div class="col s12 m4 l2"></div>
