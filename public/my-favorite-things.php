@@ -1,5 +1,15 @@
 <?php 
-    $favoriteThings = ['books', 'pajamas', 'Game of Thrones', 'napping', 'drank'];  
+    
+    function pageController () 
+    {
+       $favoriteThings = ['books', 'pajamas', 'Game of Thrones', 'napping', 'drank']; 
+       
+        $thingArray['favoriteThings'] = $favoriteThings;
+        return $thingArray;
+    }
+
+    extract(pageController());
+
 ?>
 
 <!DOCTYPE html>
