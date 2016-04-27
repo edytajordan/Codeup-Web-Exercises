@@ -1,10 +1,25 @@
 <?php 
 function pageController ()
 {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $error = 'ERROR'.PHP_EOL;
 
+    if ($username == 'guest' && $password == 'password') {
+        header('Location:/authorized.php');
+        exit();
+    } else {
+        return ['error' => $error];
+    }
+    
 }
 
-extract(pageController());
+$error = '';
+
+if ($_POST) {
+    extract(pageController());
+} 
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +29,9 @@ extract(pageController());
         <title>Log In</title>
     </head>
     <body>
-        <form>
+        <p><?= $error;  ?></p>
+        
+        <form method="POST">
             <label>Username</label>
             <input type="input" name="username" placeholder="Insert Your Username"></input>
             <label>Password</label>
