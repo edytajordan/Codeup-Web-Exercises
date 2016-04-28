@@ -1,12 +1,14 @@
 <?php 
+require_once '../functions.php';
+
 function pageController () 
 {
     $miss = false;
 
-    if (!isset($_GET['count'])) {
+    if (!inputHas('count')) {
         $count = 0;
     } else {
-        $count =$_GET['count'];
+        $count = inputGet('count');
 
         if ($count == 0) {
             $miss = true;
