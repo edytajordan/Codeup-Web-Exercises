@@ -1,10 +1,12 @@
 <?php 
+require_once '../functions.php';
+
 function pageController ()
 {
     // These variables check to see if a username or password has been inputted into the form 
     // Otherwise, the input is set to an empty string on page load 
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $username = inputGet('username');
+    $password = inputGet('password');
     
     // This is the initial message displayed on the page 
     $message = 'Please Log In';
