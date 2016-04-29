@@ -13,6 +13,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Template Page</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <!-- My CSS -->
         <link rel="stylesheet" href="/template-page.css">
     </head>
     <body>
@@ -28,5 +31,8 @@
         </p>
         <?php include_once '../footer.php'; ?>
         <?php include_once '../navbar.php'; ?>
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
     </body>
 </html>
