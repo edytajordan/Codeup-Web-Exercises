@@ -1,10 +1,9 @@
 <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
+        <a href="/index.php" class="brand-logo">Logo</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
+          <li><a href="/form.php">Form</a></li>
         </ul>
       </div>
     </nav>
