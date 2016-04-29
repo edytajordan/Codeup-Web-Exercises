@@ -1,1 +1,1 @@
-<h3>This is a header for my page</h3>
+<h1>This is a header for my page</h1>
