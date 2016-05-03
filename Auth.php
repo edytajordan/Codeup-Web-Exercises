@@ -18,6 +18,8 @@ class Auth
         } elseif ($username !== '') {
             $message = 'User {$username} failed to log in'.PHP_EOL;
         }
+
+        return ['message' => $message];
     }
 
     public static function $check()
@@ -31,7 +33,10 @@ class Auth
     public static function $user()
     {
         if (isset($_SESSION['logged_in_user'])) {
-            return $username.PHP_EOL;
+            // This redirects the user to the login.php page if they aren't already logged in
+            header('Location:/login.php');
+            exit();
+            return['username' => $_SESSION['logged_in_user']];
         }
     }
 
