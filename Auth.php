@@ -1,46 +1,47 @@
 <?php  
-require_once 'Log.php';
+require_once '../Log.php';
 
 class Auth
 {
     public static $password = '$2y$10$SLjwBwdOVvnMgWxvTI4Gb.YVcmDlPTpQystHMO2Kfyi/DS8rgA0Fm';
     
-    public static function $attempt($username, $password)
+    public static function attempt($username, $password)
     {
-        if ($username == 'guest' && password_verify('$2y$10$SLjwBwdOVvnMgWxvTI4Gb.YVcmDlPTpQystHMO2Kfyi/DS8rgA0Fm', $password)) {
+        $log = new Log;
+
+        if ($username == 'guest' && password_verify($password, self::$password)) {
         // This starts a session and assigns the session key to the username 
         $_SESSION['logged_in_user'] = $username;
 
-        // This redirects the user to the authorized.php page if they enter the correct login information 
-        header('Location:/authorized.php');
-        exit();
+        $log->info('User {$username} logged in'.PHP_EOL);
+
+        return true;
         
         } elseif ($username !== '') {
-            $message = 'User {$username} failed to log in'.PHP_EOL;
+            return false; 
+            $log->error('User {$username} failed to login'.PHP_EOL);
         }
-
-        return ['message' => $message];
     }
 
-    public static function $check()
+    public static function check()
     {
         if (isset($_SESSION['logged_in_user'])) {
-        // This redirects the user to the authorized.php page if they are already logged in
-        header('Location:/authorized.php');
-        exit();
+            return true;
+            
+        } else {
+            return false; 
+        }
     }
 
-    public static function $user()
+    public static function user()
     {
         if (isset($_SESSION['logged_in_user'])) {
             // This redirects the user to the login.php page if they aren't already logged in
-            header('Location:/login.php');
-            exit();
-            return['username' => $_SESSION['logged_in_user']];
+            return $_SESSION['logged_in_user'];
         }
     }
 
-    public static function $logout()
+    public static function logout()
     {
         // clear $_SESSION array
         session_unset();
@@ -49,15 +50,14 @@ class Auth
         session_destroy();
 
         // ensure client is sent a new session cookie
-        session_regenerate_id();
+        session_regenerate_id(true);
 
         // start a new session - session_destroy() ended our previous session so
 
         // if we want to store any new data in $_SESSION we must start a new one
         session_start();
 
-        header('Location:/login.php');
-        exit();
+        
     }    
 }
 ?>

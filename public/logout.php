@@ -1,17 +1,24 @@
 <?php 
-require_once '../functions.php';
-require_once 'Auth.php';
-require_once 'Input.php';
+require_once '../Auth.php';
+require_once '../Input.php';
 
 session_start();
 
-function pageController () 
+function pageController()
 {
-    
-    Auth::logout();
+    function clearSession()
+    {
+        Auth::logout();
+
+        header('Location:/login.php');
+        exit();   
+    }  
+
+    clearSession();      
 }
 
-extract(pageController());
+pageController();
+    
 ?>
 
 <!DOCTYPE html>
