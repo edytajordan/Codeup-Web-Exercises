@@ -7,8 +7,8 @@ function pageController ()
 {
     // These variables check to see if a username or password has been inputted into the form 
     // Otherwise, the input is set to an empty string on page load 
-    $username = inputGet('username');
-    $password = inputGet('password');
+    $username = Input::get('username');
+    $password = Input::get('password');
     
     // This is the initial message displayed on the page 
     $message = 'Please Log In';
@@ -16,25 +16,7 @@ function pageController ()
     // This starts my session
     session_start();
 
-    if (isset($_SESSION['logged_in_user'])) {
-        // This redirects the user to the authorized.php page if they are already logged in
-        header('Location:/authorized.php');
-        exit();
-    }
-    
-    if ($username == 'guest' && $password == 'password') {
-        // This starts a session and assigns the session key to the username 
-        $_SESSION['logged_in_user'] = $username;
-
-        // This redirects the user to the authorized.php page if they enter the correct login information 
-        header('Location:/authorized.php');
-        exit();
-        
-    } elseif ($username !== '') {
-        $message = 'Login Failed!';
-    }
-    
-    return ['message' => $message];
+    Auth::attempt($username, $password);
     
 }
 

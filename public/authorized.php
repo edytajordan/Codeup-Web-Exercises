@@ -7,13 +7,7 @@ session_start();
 
 function pageController ()
 {
-    if (! isset($_SESSION['logged_in_user'])) {
-        // This redirects the user to the login.php page if they aren't already logged in
-        header('Location:/login.php');
-        exit();
-    } 
-
-    return['username' => $_SESSION['logged_in_user']];
+    Auth::user();
 }
 extract(pageController());
 ?>
