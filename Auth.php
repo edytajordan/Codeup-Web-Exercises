@@ -13,13 +13,14 @@ class Auth
         // This starts a session and assigns the session key to the username 
         $_SESSION['logged_in_user'] = $username;
 
-        $log->info('User {$username} logged in'.PHP_EOL);
+        $log->info("User {$username} logged in".PHP_EOL);
 
         return true;
         
-        } elseif ($username !== '') {
+        } else{
+            
+            $log->error("User {$username} failed to login".PHP_EOL);
             return false; 
-            $log->error('User {$username} failed to login'.PHP_EOL);
         }
     }
 
