@@ -17,7 +17,7 @@ function pageController()
     clearSession();      
 }
 
-pageController();
+extract(pageController());
     
 ?>
 
