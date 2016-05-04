@@ -5,10 +5,10 @@ function pageController ()
 {
     $miss = false;
     
-    if (!inputHas('count') {    
+    if (!Input::has('count') {    
         $count = 0;
     } else {
-        $count = inputGet('count');
+        $count = Input::get('count');
 
         if ($count == 0) {
             $miss = true;
