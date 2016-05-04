@@ -1,21 +1,14 @@
 <?php 
+    require_once '../Server.php';
+
     function pageController () 
     {
 
-        $serverArray = [];
+        $server = new Server();
 
-        $nouns = ['cat', 'dog', 'fish', 'reptile', 'bird', 'amphibian', 'sock', 'shoe', 'pants', 'shirt'];
+        $newServer = $server->serverName();
 
-        $adjectives = ['big', 'small', 'red', 'blue', 'happy', 'sad', 'short', 'tall', 'fat', 'skinny']; 
-
-        $randomNoun = mt_rand(0, count($nouns) - 1);
-        $randomAdjective = mt_rand(0, count($adjectives) - 1);
-
-        $serverName = $adjectives[$randomAdjective].' '.$nouns[$randomNoun];
-
-        $serverArray['arrayName'] = $serverName;
-
-        return $serverArray;
+        return $newServer;
     }
 
     extract(pageController());
@@ -34,7 +27,7 @@
     <body>
         <div class="col s12 m4 l2"></div>
         <div class="container col s12 m4 l8">
-            <h1><?= $arrayName; ?></h1>
+            <h1><?= "$adjectives"." "."$nouns".PHP_EOL ?></h1>
         </div>
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
