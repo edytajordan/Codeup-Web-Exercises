@@ -1,0 +1,3 @@
+<?php  
+$dbc = new PDO ()
+?>
