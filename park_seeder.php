@@ -21,6 +21,12 @@ $parks = [
     ['name' => 'Capitol Reef', 'location' => 'Utah', 'date_established' => '1971-12-18', 'area_in_acres' => '241904']
 ];
 
-$insertData = "INSERT INTO national_parks(name, location, date_established, area_in_acres)
-    VALUES () "
+foreach ($parks as $parkInfo) {
+    $insertData = "INSERT INTO national_parks(name, location, date_established, area_in_acres)
+    VALUES ('{$parkInfo['name']}', '{$parkInfo['location']}', '{$parkInfo['date_established']}', '{$parkInfo['area_in_acres']}')";
+
+    $dbc->exec($insertData);
+};
+
+
 ?>
