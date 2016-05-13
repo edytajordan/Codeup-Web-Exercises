@@ -56,7 +56,10 @@
                 </tr>  
             <?php endforeach; ?>
         </table>
-        <a href="/national_parks.php?page=<?= $page-1?>">Previous Page</a>
-        <a href="/national_parks.php?page=<?=$page+1?>">Next Page</a>
+
+        <?php if ($page > 0): ?>
+            <a href="/national_parks.php?page=<?= $page-1?>">Previous Page</a>
+        <?php endif; ?>
+            <a href="/national_parks.php?page=<?=$page+1?>">Next Page</a>
     </body>
 </html>
