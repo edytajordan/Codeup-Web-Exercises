@@ -5,14 +5,22 @@
     define('DB_PASS', 'ParksDBPassword123');
     
     require_once '../db_connect.php';
+    require_once '../Input.php';
 
-        $stmt = $dbc->query('SELECT * FROM national_parks LIMIT 4');
+    $page = Input::get('page');
+    $limit = '4'; 
+    $offset = $limit * $page;
 
-        $parks = [];
+    $query = "SELECT * FROM national_parks LIMIT {$limit} OFFSET {$offset}";
 
-        while ($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $parks[] = $park;
-        }
+    $stmt = $dbc->query($query);
+
+    $parks = [];
+
+    while ($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $parks[] = $park;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -48,5 +56,7 @@
                 </tr>  
             <?php endforeach; ?>
         </table>
+        <a href="/national_parks.php?page=<?= $page-1?>">Previous Page</a>
+        <a href="/national_parks.php?page=<?=$page+1?>">Next Page</a>
     </body>
 </html>
