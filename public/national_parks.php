@@ -6,7 +6,7 @@
     
     require_once '../db_connect.php';
 
-        $stmt = $dbc->query('SELECT * FROM national_parks');
+        $stmt = $dbc->query('SELECT * FROM national_parks LIMIT 4');
 
         $parks = [];
 
