@@ -25,7 +25,6 @@
     while ($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $parks[] = $park;
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -33,44 +32,58 @@
     <head>
         <meta charset="utf-8">
         <title>National Parks</title>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/national-park.css">
+        <!-- Compiled and minified Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
     </head>
     <body>
-        <h1>National Parks</h1>
+        <h1><img src="/img/nps_logo.png"> National Parks</h1>
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th> 
-                <th>Date Established</th>
-                <th>Area in Acres</th>  
-            </tr>
-            <!-- This code puts the park data into the correct column based on the key int he associative array i created earlier -->
-            <?php foreach ($parks as $park): ?>
+        <div class="col s12 m4 l2"></div>
+        <div class=" container col s12 m4 l8">
+            <table class="bordered col s12 m4 l8">
                 <tr>
-                    <td>
-                        <?= $park['id'];  ?>
-                    </td>
-                    <td>
-                        <?= $park['name']; ?>
-                    </td>
-                    <td>
-                        <?= $park['date_established']; ?>
-                    </td>
-                    <td>
-                        <?= $park['area_in_acres']; ?>
-                    </td>  
-                </tr>  
-            <?php endforeach; ?>
-        </table>
+                    <th class="flow-text">ID</th>
+                    <th class="flow-text">Name</th> 
+                    <th class="flow-text">Date Established</th>
+                    <th class="flow-text">Area in Acres</th>  
+                </tr>
+                <!-- This code puts the park data into the correct column based on the key in the associative array I created earlier -->
+                <?php foreach ($parks as $park): ?>
+                    <tr>
+                        <td class="flow-text">
+                            <?= $park['id'];  ?>
+                        </td>
+                        <td class="flow-text">
+                            <?= $park['name']; ?>
+                        </td>
+                        <td class="flow-text">
+                            <?= $park['date_established']; ?>
+                        </td>
+                        <td class="flow-text">
+                            <?= $park['area_in_acres']; ?>
+                        </td>  
+                    </tr>  
+                <?php endforeach; ?>
+            </table>  
 
-        <!-- This code controls when/if I see the Previous Page and Next Page Links -->
-        <?php if ($page > 0): ?>
-            <a href="/national_parks.php?page=<?= $page-1?>">Previous Page</a>
-        <?php endif; ?>
-           
+            <!-- This code controls when/if I see the Previous Page and Next Page Links -->
+            <?php if ($page > 0): ?>
+                <a href="/national_parks.php?page=<?= $page-1?>">Previous Page | </a>
+            <?php endif; ?>
+               
+          
 
-        <?php if ($page < $maxPage): ?>
-             <a href="/national_parks.php?page=<?=$page+1?>">Next Page</a>
-        <?php endif; ?>
+            <?php if ($page < $maxPage): ?>
+                 <a href="/national_parks.php?page=<?=$page+1?>">Next Page</a>
+            <?php endif; ?>     
+        </div> 
+        <div class="col s12 m4 l2"></div>
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <!-- Compiled and minified Materialize JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
     </body>
 </html>
