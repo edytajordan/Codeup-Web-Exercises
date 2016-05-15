@@ -1,0 +1,22 @@
+a{
+    color: #1b5e20 !important;
+}
+
+body {
+    background-image: url("/img/big_bend.jpg");
+}
+
+h1 {
+    text-align: center;
+    color: #1b5e20;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    text-align: center;
+    font-weight: bold !important;
+    color: #1b5e20;
+}
