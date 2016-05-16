@@ -83,7 +83,9 @@
                
             <?php if ($page < $maxPage): ?>
                  <a href="/national_parks.php?page=<?=$page+1?>">Next Page</a>
-            <?php endif; ?>     
+            <?php endif; ?>    
+
+            <a href="/national_parks_form.php"> | Enter Your Favorite Park!</a> 
         </div> 
         <div class="col s12 m4 l2"></div>
         
