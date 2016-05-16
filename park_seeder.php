@@ -1,8 +1,5 @@
 <?php  
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'parks_db');
-define('DB_USER', 'parks_user');
-define('DB_PASS', 'ParksDBPassword123');
+require_once 'park_db_credentials.php';
 
 require_once 'db_connect.php';
 
