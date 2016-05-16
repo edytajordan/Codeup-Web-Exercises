@@ -1,11 +1,6 @@
 <?php  
-    // These are the credentials to access the database 
-    define('DB_HOST', '127.0.0.1');
-    define('DB_NAME', 'parks_db');
-    define('DB_USER', 'parks_user');
-    define('DB_PASS', 'ParksDBPassword123');
-    
     // These are the files I need to connect to the MySQL database and to access PHP functions that I use frequently
+    require_once '../park_db_credentials.php';
     require_once '../db_connect.php';
     require_once '../Input.php';
 
@@ -44,12 +39,13 @@
     <body>
         <h1><img src="/img/nps_logo.png"> National Parks</h1>
 
-        <div class="col s12 m4 l2"></div>
-        <div class=" container col s12 m4 l8">
-            <table class="bordered col s12 m4 l8">
+        <div class="col s12 m4 l1"></div>
+        <div class=" container col s12 m4 l9">
+            <table class="bordered col s12 m4 l9">
                 <tr>
                     <th class="flow-text">ID</th>
                     <th class="flow-text">Name</th> 
+                    <th class="flow-text">Location</th>
                     <th class="flow-text">Date Established</th>
                     <th class="flow-text">Area in Acres</th>
                     <th class="flow-text">Description</th>  
@@ -62,6 +58,9 @@
                         </td>
                         <td class="flow-text">
                             <?= $park['name']; ?>
+                        </td>
+                        <td class="flow-text">
+                            <?= $park['location'];?>   
                         </td>
                         <td class="flow-text">
                             <?= $park['date_established']; ?>
@@ -87,7 +86,7 @@
 
             <a href="/national_parks_form.php"> | Enter Your Favorite Park!</a> 
         </div> 
-        <div class="col s12 m4 l2"></div>
+        <div class="col s12 m4 l1"></div>
         
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
