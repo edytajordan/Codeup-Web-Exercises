@@ -11,20 +11,24 @@
 
     // These are the variables I use throughout my script 
     $page = Input::get('page');
-    $limit = '4'; 
+    $limit = 4; 
     $offset = $limit * $page;
     $parkTotal = $dbc->query("SELECT count(*) FROM national_parks")->fetchColumn();
     $maxPage = ($parkTotal/$limit)-1;
-    $query = "SELECT * FROM national_parks LIMIT {$limit} OFFSET {$offset}";
+
+    // This code creates my database query
+    $query = $dbc->prepare("SELECT * FROM national_parks limit :limit offset :offset");
+    $query->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $query->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $query->execute();
 
     // The following code pulls all of the data from the database and puts it into an array that I can use 
-    $stmt = $dbc->query($query);
 
     $parks = [];
 
-    while ($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while($park = $query->fetch(PDO::FETCH_ASSOC)){
         $parks[] = $park;
-    }
+    };
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +51,8 @@
                     <th class="flow-text">ID</th>
                     <th class="flow-text">Name</th> 
                     <th class="flow-text">Date Established</th>
-                    <th class="flow-text">Area in Acres</th>  
+                    <th class="flow-text">Area in Acres</th>
+                    <th class="flow-text">Description</th>  
                 </tr>
                 <!-- This code puts the park data into the correct column based on the key in the associative array I created earlier -->
                 <?php foreach ($parks as $park): ?>
@@ -63,7 +68,10 @@
                         </td>
                         <td class="flow-text">
                             <?= $park['area_in_acres']; ?>
-                        </td>  
+                        </td> 
+                        <td class="flow-text">
+                            <?= $park['description']; ?>  
+                        </td> 
                     </tr>  
                 <?php endforeach; ?>
             </table>  
@@ -73,8 +81,6 @@
                 <a href="/national_parks.php?page=<?= $page-1?>">Previous Page | </a>
             <?php endif; ?>
                
-          
-
             <?php if ($page < $maxPage): ?>
                  <a href="/national_parks.php?page=<?=$page+1?>">Next Page</a>
             <?php endif; ?>     
