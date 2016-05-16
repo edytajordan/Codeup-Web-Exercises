@@ -6,9 +6,22 @@ body {
     background-image: url("/img/big_bend.jpg");
 }
 
+button{
+    background-color: #1b5e20 !important;   
+}
+
 h1 {
     text-align: center;
     color: #1b5e20;
+}
+
+.input-field label {
+    color: #1b5e20 !important;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #1b5e20 !important; 
+    box-shadow: 0 1px 0 0 #1b5e20 !important;
 }
 
 td {
