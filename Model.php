@@ -3,6 +3,8 @@ class Model
 {
     private $attributes = [];
 
+    protected static $table;
+
     public function __set($key, $value)
         {
             echo "Magic setter called!".PHP_EOL;
