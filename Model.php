@@ -23,5 +23,10 @@ class Model
             // This checks to see if a value has been set 
             return isset($this->attributes[$key]) ? $this->attributes[$key] : null;
         }
+
+    public static function getTableName($table)
+    {
+        return static::$table;
+    }
 }
 ?>
