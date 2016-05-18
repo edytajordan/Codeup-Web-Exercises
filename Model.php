@@ -24,7 +24,7 @@ class Model
             return isset($this->attributes[$key]) ? $this->attributes[$key] : null;
         }
 
-    public static function getTableName($table)
+    public static function getTableName()
     {
         return static::$table;
     }
