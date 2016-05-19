@@ -29,13 +29,22 @@ class Input
 
     public static function getString($key)
     {
-
+        $string = self::get($key);
+        
+       if (!is_string($string)) {
+            throw new Exception('$string must be a string!');
+        }    
     }
-
 
     public static function getNumber($key)
     {
-        
+        $number = self::get($key);
+
+        if (is_numeric($number)) {
+            return (int)$number;
+        } else {
+            throw new Exception("$number must be a number!");
+        }
     }
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
