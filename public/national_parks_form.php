@@ -68,10 +68,7 @@
                     Back to National Parks
                     <a href="/national_parks.php"></a>
                 </button>
-            </form> 
-
-
-            
+            </form>  
         </div>
         <div class="col s12 m4 l2"></div>
         
