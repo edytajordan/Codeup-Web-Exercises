@@ -16,14 +16,18 @@
             $userInput->bindValue(':name', Input::getString('name'));
 
 
+        }catch (InvalidArgumentException $e1){
+            array_push($errors, $e1->getMessage());
         }catch (Exception $e1){
             array_push($errors, $e1->getMessage());
         }
 
         try {
             $userInput->bindValue(':location', Input::getString('location'));   
-        } catch (Exception $e2){
+        } catch (InvalidArgumentException $e2){
             array_push($errors, $e2->getMessage());        
+        }catch(Exception $e2){
+            array_push($errors, $e1->getMessage());
         }
         
         try {
@@ -31,18 +35,24 @@
                 
         } catch (Exception $e3) {
             array_push($errors, $e3->getMessage());            
-        }    
+        }catch(Exception $e3){
+            array_push($errors, $e1->getMessage());
+        }   
         
         try {
             $userInput->bindValue(':area_in_acres', Input::getNumber('area_in_acres'));        
-        } catch (Exception $e4) {
+        } catch (InvalidArgumentException $e4) {
             array_push($errors, $e4->getMessage());         
-        }    
+        }catch(Exception $e4){
+            array_push($errors, $e1->getMessage());
+        }   
         
         try {
             $userInput->bindValue(':description', Input::getString('description'));       
-        } catch (Exception $e5) {
+        } catch (InvalidArgumentException $e5) {
             array_push($errors, $e5->getMessage());       
+        }catch(Exception $e5){
+            array_push($errors, $e1->getMessage());
         }   
 
         if (empty($errors)) {
@@ -67,7 +77,7 @@
         <div class="col s12 m4 l2"></div>
         <div class=" container col s12 m4 l8">
             <?php if (! empty($errors)){ ?> 
-                <h4><?php var_dump($errors); ?></h4>
+                <p><?php var_dump($errors); ?></p>
             <?php } ?>
 
             <form class=" container col s12 m4 l8" method="POST" action="national_parks_form.php">
