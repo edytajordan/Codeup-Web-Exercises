@@ -33,7 +33,9 @@ class Input
         
        if (!is_string($string)) {
             throw new Exception('$string must be a string!');
-        }    
+        } 
+
+        return $string;   
     }
 
     public static function getNumber($key)
@@ -45,6 +47,8 @@ class Input
         } else {
             throw new Exception("$number must be a number!");
         }
+
+        return $number;
     }
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
