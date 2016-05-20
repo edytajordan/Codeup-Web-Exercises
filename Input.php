@@ -27,28 +27,44 @@ class Input
         return (Input::has($key)) ? $_REQUEST[$key] : null;
     }
 
-    public static function getString($key)
+    public static function getString($key, $min = 0, $max = 50)
     {
         $string = self::get($key);
         
        if (!is_string($string) || is_numeric($string)) {
-            throw new Exception("$string must be a string!");
-        } 
+            throw new InvalidArgumentException("$string must be a string!");
+        }elseif (empty($string)) {
+            # code...
+        }
 
         return $string;   
     }
 
-    public static function getNumber($key)
+    public static function getNumber($key, $min = 0, $max = 50)
     {
         $number = self::get($key);
 
         if (is_numeric($number)) {
             return (int)$number;
         } else {
-            throw new Exception("$number must be a number!");
+            throw new InvalidArgumentException("$number must be a number!");
         }
 
         return $number;
+
+        $min = self::get($min);
+
+        if (!is_numeric($min)) {
+            throw new InvalidArgumentException("Your argument is invalid");
+            
+        }
+
+        $max = self::get($max);
+
+        if (!is_numeric($max)) {
+            throw new InvalidArgumentException("Your argument is invalid");
+            
+        }
     }
 
     public static function  getDate($key)
@@ -72,3 +88,7 @@ class Input
     ///////////////////////////////////////////////////////////////////////////
     private function __construct() {}
 }
+
+/**
+* 
+*/
