@@ -31,8 +31,8 @@ class Input
     {
         $string = self::get($key);
         
-       if (!is_string($string)) {
-            throw new Exception('$string must be a string!');
+       if (!is_string($string) || is_numeric($string)) {
+            throw new Exception("$string must be a string!");
         } 
 
         return $string;   
@@ -49,6 +49,20 @@ class Input
         }
 
         return $number;
+    }
+
+    public static function  getDate($key)
+    {
+        $date = self::get($key);
+
+        $newDate = date_create($date);
+
+        if (! ($newDate instanceof DateTime) && ! date_format($newDate, "YYYY-MM-DD" )) {
+            throw new Exception("$date must be a date");
+            
+        }
+
+        return $date;
     }
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
