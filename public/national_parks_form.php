@@ -7,16 +7,21 @@
     require_once '../Input.php';
 
     if (! empty($_POST)) {
-    
-        $userInput = $dbc->prepare("INSERT INTO national_parks(name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)");
 
-        $userInput->bindValue(':name', $_POST['name']);
-        $userInput->bindValue(':location', $_POST['location']);
-        $userInput->bindValue(':date_established', $_POST['date_established']);
-        $userInput->bindValue(':area_in_acres', $_POST['area_in_acres']);
-        $userInput->bindValue(':description', $_POST['description']);
+        try {
+            $userInput = $dbc->prepare("INSERT INTO national_parks(name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)");
 
-        $userInput->execute();
+            $userInput->bindValue(':name', $_POST['name']);
+            $userInput->bindValue(':location', $_POST['location']);
+            $userInput->bindValue(':date_established', $_POST['date_established']);
+            $userInput->bindValue(':area_in_acres', $_POST['area_in_acres']);
+            $userInput->bindValue(':description', $_POST['description']);
+
+            $userInput->execute();   
+        } catch (Exception $e) {
+            echo "An error occurred".$e->getMessage().PHP_EOL;
+        }
+        echo "I'm still working no matter what".PHP_EOL;  
     }
 ?>
 
