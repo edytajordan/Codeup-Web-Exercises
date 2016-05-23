@@ -34,7 +34,7 @@ class Input
        if (!is_string($string) || is_numeric($string)) {
             throw new InvalidArgumentException("$string must be a string!");
         }elseif (empty($string)) {
-            # code...
+            throw new OutofRangeException("You must enter a value");
         }
 
         return $string;   
@@ -50,6 +50,10 @@ class Input
             throw new InvalidArgumentException("$number must be a number!");
         }
 
+        if (empty($number)) {
+            throw new OutofRangeException("You must enter a value");
+        }
+
         return $number;
 
         $min = self::get($min);
@@ -62,8 +66,7 @@ class Input
         $max = self::get($max);
 
         if (!is_numeric($max)) {
-            throw new InvalidArgumentException("Your argument is invalid");
-            
+            throw new InvalidArgumentException("Your argument is invalid");   
         }
     }
 
@@ -74,8 +77,9 @@ class Input
         $newDate = date_create($date);
 
         if (! ($newDate instanceof DateTime) && ! date_format($newDate, "YYYY-MM-DD" )) {
-            throw new Exception("$date must be a date");
-            
+            throw new Exception("$date must be a date");  
+        }elseif (empty($key)) {
+            throw new OutofRangeException("You must enter a value");
         }
 
         return $date;
