@@ -33,8 +33,16 @@ class Input
         
        if (!is_string($string) || is_numeric($string)) {
             throw new InvalidArgumentException("$string must be a string!");
+            throw new DomainException("$string is the wrong data type!");
+            
         }elseif (empty($string)) {
             throw new OutofRangeException("You must enter a value");
+        }elseif (strlen($string) > $max) {
+            throw new LengthException("You've run out of characters");
+            
+        }elseif (strlen($string) < $min) {
+            throw new LengthException("You need to type more characters");
+            
         }
 
         return $string;   
@@ -45,8 +53,11 @@ class Input
         $number = self::get($key);
 
         if (is_numeric($number)) {
-            return (int)$number;
-        } else {
+            $number = (int)$number;
+        }elseif (!is_numeric($number)) {
+            throw new DomainException("$number is the wrong data type!");
+            
+        }else {
             throw new InvalidArgumentException("$number must be a number!");
         }
 
@@ -54,20 +65,24 @@ class Input
             throw new OutofRangeException("You must enter a value");
         }
 
-        return $number;
-
-        $min = self::get($min);
-
         if (!is_numeric($min)) {
             throw new InvalidArgumentException("Your argument is invalid");
             
         }
 
-        $max = self::get($max);
-
         if (!is_numeric($max)) {
             throw new InvalidArgumentException("Your argument is invalid");   
         }
+
+        if ($number < $min) {
+            throw new RangeException("Your number is too small");
+            
+        }elseif ($number > $max) {
+            throw new RangeException("Your number is too big");
+            
+        }
+
+        return $number;
     }
 
     public static function  getDate($key)
@@ -76,9 +91,11 @@ class Input
 
         $newDate = date_create($date);
 
-        if (! ($newDate instanceof DateTime) && ! date_format($newDate, "YYYY-MM-DD" )) {
-            throw new Exception("$date must be a date");  
-        }elseif (empty($key)) {
+        if (!($newDate instanceof DateTime)) {
+            throw new Exception("$date must be a date!"); 
+            throw new DomainException("$date is the wrong data type!");
+              
+        }elseif (empty($date)) {
             throw new OutofRangeException("You must enter a value");
         }
 
