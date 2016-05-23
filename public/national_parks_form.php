@@ -1,6 +1,4 @@
 <?php  
-
-
     // These are the files I need to connect to the MySQL database and to access PHP functions that I use frequently
     require_once '../park_db_credentials.php';
     require_once '../db_connect.php';
@@ -13,7 +11,7 @@
         $userInput = $dbc->prepare("INSERT INTO national_parks(name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)");
 
         try {
-            $userInput->bindValue(':name', Input::getString('name'));
+            $userInput->bindValue(':name', Input::getString('name', 1, 100));
 
 
         }catch (InvalidArgumentException $e1){
@@ -23,11 +21,11 @@
         }
 
         try {
-            $userInput->bindValue(':location', Input::getString('location'));   
+            $userInput->bindValue(':location', Input::getString('location', 1, 100));   
         } catch (InvalidArgumentException $e2){
             array_push($errors, $e2->getMessage());        
         }catch(Exception $e2){
-            array_push($errors, $e1->getMessage());
+            array_push($errors, $e2->getMessage());
         }
         
         try {
@@ -36,23 +34,23 @@
         } catch (Exception $e3) {
             array_push($errors, $e3->getMessage());            
         }catch(Exception $e3){
-            array_push($errors, $e1->getMessage());
+            array_push($errors, $e3->getMessage());
         }   
         
         try {
-            $userInput->bindValue(':area_in_acres', Input::getNumber('area_in_acres'));        
+            $userInput->bindValue(':area_in_acres', Input::getNumber('area_in_acres', 6000, 8000000));        
         } catch (InvalidArgumentException $e4) {
             array_push($errors, $e4->getMessage());         
         }catch(Exception $e4){
-            array_push($errors, $e1->getMessage());
+            array_push($errors, $e4->getMessage());
         }   
         
         try {
-            $userInput->bindValue(':description', Input::getString('description'));       
+            $userInput->bindValue(':description', Input::getString('description', 1, 500));       
         } catch (InvalidArgumentException $e5) {
             array_push($errors, $e5->getMessage());       
         }catch(Exception $e5){
-            array_push($errors, $e1->getMessage());
+            array_push($errors, $e5->getMessage());
         }   
 
         if (empty($errors)) {
