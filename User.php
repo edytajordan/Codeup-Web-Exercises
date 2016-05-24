@@ -70,12 +70,9 @@ class User extends Model
 
         $findData = self::$dbc->prepare('SELECT * FROM users WHERE id = ?');
 
-        $findData->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $result = $findData->execute([$id]);
 
-        $findData->execute([$id]);
-
-        $result = $findData->fetch();
-        var_dump($result);
+        $result = $findData->fetch(PDO::FETCH_ASSOC);        
 
         // The following code will set the attributes on the calling object based on the result variable's contents
         $instance = null;
