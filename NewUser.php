@@ -20,53 +20,19 @@ class User extends Model
         $truncate = "TRUNCATE users";
         $dbc->exec($truncate);
 
-        $users = [
-            [
-                'name' => 'Kristen Cates',
-                'email' => 'kcates@email.com',
-                'password' => 'dshlkfnkjdaj'
-            ],
-            [
-                'name' => 'Ashley Cates',
-                'email' => 'acates@email.com',
-                'password' => 'uihwefiudhfduihf'
-            ],
-            [
-                'name' => 'Kathy Cates',
-                'email' => 'kpcates@email.com',
-                'password' => 'dqwhbdfhbwfhb'
-            ],
-            [
-                'name' => 'Johhnie Cates',
-                'email' => 'jcates@email.com',
-                'password' => 'hbfjjsdbkd'
-            ],
-            [
-                'name' => 'Tewodros Egziabher',
-                'email' => 'tegziabher@email.com',
-                'password' => 'hfkjaefkejhfbdks'
-            ],
-            [
-                'name' => 'Micah Egziabher',
-                'email' => 'megziabher@email.com',
-                'password' => 'iewubjkdajkndiuh'
-            ],
-            [
-                'name' => 'Isaiah Egziabher',
-                'email' => 'iegziabher@email.com',
-                'password' => 'fjsfjksjk'
-            ],
-        ];
+        $this->attributes['name'] = 'test user';
+        $this->attributes['email'] = 'test@email.com';
+        $this->attributes['password'] = 'testpassword';
 
         $insertData = $dbc->prepare('INSERT INTO users(name, email, password) VALUES (:name, :email, :password)');
 
-        foreach ($users as $userInfo) {
-            $insertData->bindValue(':name', $userInfo['name'], PDO::PARAM_STR);
-            $insertData->bindValue(':email', $userInfo['email'], PDO::PARAM_STR);
-            $insertData->bindValue(':password', $userInfo['password'], PDO::PARAM_STR);
+       
+        $insertData->bindValue(':name', $this->attributes['name'], PDO::PARAM_STR);
+        $insertData->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+        $insertData->bindValue(':password', password_hash($this->attributes['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
 
-            $insertData->execute();
-        }
+        $insertData->execute();
+       
 
     /** Update existing entry in the database */
     protected function update()
@@ -74,6 +40,16 @@ class User extends Model
         // @TODO: Use prepared statements to ensure data security
 
         // @TODO: You will need to iterate through all the attributes to build the prepared query
+
+        $insertData = $dbc->prepare('INSERT INTO users(name, email, password) VALUES (:name, :email, :password)');
+
+       
+        $insertData->bindValue(':name', $this->attributes['name'], PDO::PARAM_STR);
+        $insertData->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+        $insertData->bindValue(':password', password_hash($this->attributes['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
+
+        $insertData->execute();
+
     }
 
     /**
