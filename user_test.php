@@ -9,15 +9,15 @@
     
     $testUser->save();
 
-    // $foundUser = User::find(4);
-    // var_dump($foundUser);
+    $foundUser = User::find(4);
+    var_dump($foundUser);
 
-    // $allUsers = User::all();
-    // var_dump($allUsers);
+    $allUsers = User::all();
+    var_dump($allUsers);
 
-    // $testUser->name = 'Testy McTestface';
-    // $testUser->save();
-    // var_dump($testUser);
+    $testUser->name = 'Testy McTestface';
+    $testUser->save();
+    var_dump($testUser);
 
     $deleteUser = User::delete(2);
 ?>
