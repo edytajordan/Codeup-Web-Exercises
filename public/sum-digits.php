@@ -5,10 +5,7 @@
 
     $numbers = str_split($inputNumber);
 
-    var_dump($numbers);
+    $sum = array_sum($numbers);
 
-    foreach ($numbers as $number) {
-       (int)$number;
-       var_dump($number);
-    }
+    echo "The sum of $inputNumber is $sum\n";
 ?>
