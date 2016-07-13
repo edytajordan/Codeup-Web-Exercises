@@ -7,5 +7,5 @@
 
     $sum = array_sum($numbers);
 
-    echo "The sum of $inputNumber is $sum\n";
+    echo "The sum of the digits in $inputNumber is $sum\n";
 ?>
