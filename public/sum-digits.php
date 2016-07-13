@@ -1,19 +1,14 @@
 <?php  
-    function getSum()
-    {
-        echo "Input a multi-digit number";
-        $inputNumber = fgets(STDIN);
-        $inputNumber = trim($inputNumber);
+    if ($argc == 2 && ctype_digit($argv[1])) {
+        $inputNumber = $argv[1];
+    }
 
-        $sum = 0;
+    $numbers = str_split($inputNumber);
 
-        do{
-            $sum += $inputNumber % 10;
-                  
-        }while ($inputNumber = (int)$inputNumber / 10);
+    var_dump($numbers);
 
-        return $sum; 
-    };
-
-    getSum();
+    foreach ($numbers as $number) {
+       (int)$number;
+       var_dump($number);
+    }
 ?>
