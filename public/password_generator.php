@@ -1,10 +1,4 @@
 <?php 
- if ($argc == 4 && ctype_digit($argv[1]) && is_bool($argv[2]) &&  ctype_alpha($argv[3])) {
-    $length = $argv[1];
-    $add_dashes = $argv[2];
-    $available_sets = $argv[3];
-} 
-
 function generateStrongPassword($length, $add_dashes, $available_sets)
 {
     $sets = array();
@@ -41,7 +35,7 @@ function generateStrongPassword($length, $add_dashes, $available_sets)
     return $dash_str;
 }
 
-$password = generateStrongPassword($length, $add_dashes, $available_sets);
+$password = generateStrongPassword($argv[1], $argv[2], $argv[3]);
 
 echo "Your new password is: " . $password.PHP_EOL;
 ?>
