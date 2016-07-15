@@ -1,12 +1,12 @@
-<?php  
+<?php 
+ if ($argc == 4 && ctype_digit($argv[1]) && is_bool($argv[2]) &&  ctype_alpha($argv[3])) {
+    $length = $argv[1];
+    $add_dashes = $argv[2];
+    $available_sets = $argv[3];
+} 
+
 function generateStrongPassword($length, $add_dashes, $available_sets)
 {
-    if ($argc == 4 && ctype_digit($argv[1]) && is_bool($argv[2]) &&  ctype_alpha($argv[3])) {
-        $length = $argv[1];
-        $add_dashes = $argv[2];
-        $available_sets = $argv[3];
-    }
-    
     $sets = array();
     if(strpos($available_sets, 'l') !== false)
         $sets[] = 'abcdefghjkmnpqrstuvwxyz';
